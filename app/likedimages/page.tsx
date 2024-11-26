@@ -1,4 +1,4 @@
-export const LikedImages = () => {
+const LikedImages = () => {
   return <>Liked Images</>;
 };
 

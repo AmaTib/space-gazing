@@ -1,4 +1,4 @@
-export const About = () => {
+const About = () => {
   return <>About</>;
 };
 

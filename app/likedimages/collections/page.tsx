@@ -1,4 +1,4 @@
-export const collections = () => {
+const collections = () => {
   return <>Collections</>;
 };
 
