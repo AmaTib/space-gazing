@@ -1,4 +1,4 @@
-export interface INasaResponse {
+export interface IImageInfo {
   date: string;
   title: string;
   explanation: string;

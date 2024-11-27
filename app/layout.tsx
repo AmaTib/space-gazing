@@ -1,3 +1,4 @@
+import Logo from "./components/Logo";
 import "./globals.scss";
 
 export default function RootLayout({
@@ -8,9 +9,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <header>Header</header>
+        <header>
+          <Logo />
+        </header>
         <main>{children}</main>
-        <footer>Footer</footer>
       </body>
     </html>
   );
