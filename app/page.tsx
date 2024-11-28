@@ -1,5 +1,5 @@
-import ImageOfTheDay from "@/app/components/ImageOfTheDay";
 import { getImageByDate } from "@/services/imageServices";
+import HomePage from "./components/pages/HomePage";
 
 export default async function Home() {
   const image = await getImageByDate();
@@ -7,12 +7,7 @@ export default async function Home() {
 
   return (
     <>
-      App page
-      <ImageOfTheDay
-        url={image.url}
-        hdurl={image.hdurl}
-        isImage={image.media_type === "image"}
-      />
+      <HomePage imgObject={image} />
     </>
   );
 }

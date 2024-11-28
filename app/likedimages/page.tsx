@@ -1,5 +1,11 @@
+import { LikedImagesPage } from "../components/pages/LikedImagesPage";
+
 const LikedImages = () => {
-  return <>Liked Images</>;
+  return (
+    <>
+      <LikedImagesPage />
+    </>
+  );
 };
 
 export default LikedImages;

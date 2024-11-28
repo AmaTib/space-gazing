@@ -1,12 +1,35 @@
+"use client";
 import Image from "next/image";
+import { useContext } from "react";
+import { IImageInfo } from "../models/IImageInfo";
+import { LikedImagesContext } from "../context/LikedImagesContext";
 
 interface ImageOfTheDayProps {
   hdurl: string;
   url: string;
   isImage: boolean;
+  imgObject: IImageInfo;
 }
 
-const ImageOfTheDay = ({ url, hdurl, isImage }: ImageOfTheDayProps) => {
+const ImageOfTheDay = ({
+  url,
+  hdurl,
+  isImage,
+  imgObject,
+}: ImageOfTheDayProps) => {
+  /*   const [likedImages, setLikedImages] = useState<IImageInfo[]>(
+    JSON.parse(localStorage.getItem("likedImages") || "[]")
+  ); */
+
+  const { likedImages, setLikedImages } = useContext(LikedImagesContext);
+
+  const likeImage = () => {
+    const updatedLikedImages = [...likedImages, imgObject];
+    setLikedImages(updatedLikedImages);
+    localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
+    console.log(updatedLikedImages);
+  };
+
   return (
     <>
       {isImage ? (
@@ -14,7 +37,8 @@ const ImageOfTheDay = ({ url, hdurl, isImage }: ImageOfTheDayProps) => {
       ) : (
         <iframe src={url}></iframe>
       )}
-      <button>i</button>
+      <button>info</button>
+      <button onClick={likeImage}>Gilla</button>
     </>
   );
 };
