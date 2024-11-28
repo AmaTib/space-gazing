@@ -1,4 +1,5 @@
 import Logo from "./components/Logo";
+import NavBar from "./components/NavBar";
 import "./globals.scss";
 
 export default function RootLayout({
@@ -11,6 +12,7 @@ export default function RootLayout({
       <body>
         <header>
           <Logo />
+          <NavBar />
         </header>
         <main>{children}</main>
       </body>

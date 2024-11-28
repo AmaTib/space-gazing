@@ -1,0 +1,15 @@
+ul {
+  display: flex;
+  list-style: none;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+.navLink {
+  all: unset;
+  cursor: pointer;
+
+  &.focus {
+    background-color: grey;
+  }
+}
