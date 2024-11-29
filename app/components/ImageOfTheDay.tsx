@@ -17,10 +17,6 @@ const ImageOfTheDay = ({
   isImage,
   imgObject,
 }: ImageOfTheDayProps) => {
-  /*   const [likedImages, setLikedImages] = useState<IImageInfo[]>(
-    JSON.parse(localStorage.getItem("likedImages") || "[]")
-  ); */
-
   const { likedImages, setLikedImages } = useContext(LikedImagesContext);
 
   const likeImage = () => {
@@ -33,7 +29,13 @@ const ImageOfTheDay = ({
   return (
     <>
       {isImage ? (
-        <Image src={hdurl} alt="Nasa image" height={200} width={200}></Image>
+        <Image
+          src={hdurl}
+          alt="Nasa image"
+          height={200}
+          width={200}
+          priority={false}
+        ></Image>
       ) : (
         <iframe src={url}></iframe>
       )}
