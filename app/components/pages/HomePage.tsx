@@ -5,9 +5,10 @@ import ImageOfTheDay from "../ImageOfTheDay";
 
 interface IHomePageProps {
   imgObject: IImageInfo;
+  todaysDate: string;
 }
 
-const HomePage = ({ imgObject }: IHomePageProps) => {
+const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   return (
     <>
       App page
@@ -17,6 +18,12 @@ const HomePage = ({ imgObject }: IHomePageProps) => {
         hdurl={imgObject.hdurl}
         isImage={imgObject.media_type === "image"}
       />
+      <section>
+        <button>Previous</button>
+        <p>{imgObject.date + todaysDate}</p>
+
+        {imgObject.date !== todaysDate && <button>Next</button>}
+      </section>
     </>
   );
 };

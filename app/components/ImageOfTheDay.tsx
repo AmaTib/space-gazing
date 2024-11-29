@@ -34,7 +34,7 @@ const ImageOfTheDay = ({
           alt="Nasa image"
           height={200}
           width={200}
-          priority={false}
+          priority={true}
         ></Image>
       ) : (
         <iframe src={url}></iframe>
