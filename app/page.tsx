@@ -1,5 +1,5 @@
 import { getImageByDate } from "@/services/imageServices";
-import HomePage from "./components/pages/HomePage";
+import HomePage from "./components/views/HomePage";
 
 export default async function Home() {
   const date = new Date();

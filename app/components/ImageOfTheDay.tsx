@@ -5,18 +5,11 @@ import { IImageInfo } from "../models/IImageInfo";
 import { LikedImagesContext } from "../context/LikedImagesContext";
 
 interface ImageOfTheDayProps {
-  hdurl: string;
-  url: string;
   isImage: boolean;
   imgObject: IImageInfo;
 }
 
-const ImageOfTheDay = ({
-  url,
-  hdurl,
-  isImage,
-  imgObject,
-}: ImageOfTheDayProps) => {
+const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
   const { likedImages, setLikedImages } = useContext(LikedImagesContext);
 
   const likeImage = () => {
@@ -30,14 +23,14 @@ const ImageOfTheDay = ({
     <>
       {isImage ? (
         <Image
-          src={hdurl}
+          src={imgObject.hdurl}
           alt="Nasa image"
           height={200}
           width={200}
           priority={true}
         ></Image>
       ) : (
-        <iframe src={url}></iframe>
+        <iframe src={imgObject.url}></iframe>
       )}
       <button>info</button>
       <button onClick={likeImage}>Gilla</button>

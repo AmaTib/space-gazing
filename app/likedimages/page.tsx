@@ -1,4 +1,4 @@
-import { LikedImagesPage } from "../components/pages/LikedImagesPage";
+import { LikedImagesPage } from "../components/views/LikedImagesPage";
 
 const LikedImages = () => {
   return (
