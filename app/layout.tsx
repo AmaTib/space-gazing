@@ -1,4 +1,4 @@
-import LikedImagesProvider from "@/providers/likedImagesContextProvider";
+import LikedImagesProvider from "./providers/likedImagesContextProvider";
 import Logo from "./components/Logo";
 import NavBar from "./components/NavBar";
 import "./globals.scss";
