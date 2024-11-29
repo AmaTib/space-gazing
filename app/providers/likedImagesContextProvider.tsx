@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { IImageInfo } from "../app/models/IImageInfo";
 import { LikedImagesContext } from "@/app/context/LikedImagesContext";
+import { IImageInfo } from "../models/IImageInfo";
 
 /* const LikedImagesContext = createContext<I>({}); */
 
