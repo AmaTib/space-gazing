@@ -1,6 +1,8 @@
 import { getImageByDate } from "@/services/imageServices";
 import HomePage from "./components/views/HomePage";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const date = new Date();
   const day = date.getDate();
