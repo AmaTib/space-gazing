@@ -21,8 +21,6 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
   };
 
   const openImageInfo = () => {
-    console.log("klick");
-
     setShowInfo(!showInfo);
   };
 

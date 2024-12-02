@@ -4,6 +4,8 @@ import { IImageInfo } from "@/app/models/IImageInfo";
 import ImageOfTheDay from "../ImageOfTheDay";
 import { useState } from "react";
 import { getImageByDate } from "@/services/imageServices";
+import { PrimaryButton } from "../PrimaryButton";
+import { Form } from "../Form";
 
 interface IHomePageProps {
   imgObject: IImageInfo;
@@ -13,6 +15,7 @@ interface IHomePageProps {
 const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   const [image, setImage] = useState<IImageInfo>(imgObject);
   const [imgDate, setImgDate] = useState(imgObject.date);
+  const [showForm, setShowForm] = useState(false);
 
   const previousDate = async () => {
     const date = new Date(imgDate);
@@ -50,6 +53,26 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           <button onClick={nextDate}>Next</button>
         )}
       </section>
+
+      {showForm ? (
+        <Form
+          btnText="&#128269;"
+          inputType="date"
+          submit={() => {}}
+          close={() => {
+            console.log("stängde");
+
+            setShowForm(false);
+          }}
+        />
+      ) : (
+        <PrimaryButton
+          text="Search Date"
+          event={() => {
+            setShowForm(true);
+          }}
+        />
+      )}
     </>
   );
 };
