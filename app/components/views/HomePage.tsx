@@ -25,15 +25,30 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
     setImgDate(prevImage.date);
   };
 
+  const nextDate = async () => {
+    const date = new Date(imgDate);
+    date.setDate(date.getDate() + 1);
+    const updatedDate = date.toISOString().split("T")[0];
+
+    const prevImage = await getImageByDate(updatedDate);
+
+    setImage(prevImage);
+    setImgDate(prevImage.date);
+  };
+
+  console.log(image.date, "&", todaysDate);
+
   return (
     <>
-      App page
       <ImageOfTheDay imgObject={image} isImage={image.media_type === "image"} />
       <section>
         <button onClick={previousDate}>Previous</button>
         <p>{image.date}</p>
 
-        {image.date !== todaysDate && <button>Next</button>}
+        {new Date(image.date).toDateString() !==
+          new Date(todaysDate).toDateString() && (
+          <button onClick={nextDate}>Next</button>
+        )}
       </section>
     </>
   );
