@@ -29,10 +29,10 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
       {isImage ? (
         <>
           <h2>{imgObject.title}</h2>
-          <p>&copy; {imgObject.copyright}</p>
+          <p> {imgObject.copyright ? `${imgObject.copyright}` : ""}</p>
           <Image
             src={imgObject.hdurl}
-            alt="Nasa image"
+            alt={imgObject.title}
             height={200}
             width={200}
             priority={true}
