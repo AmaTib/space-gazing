@@ -53,8 +53,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
         </button>
         <p>{image.date}</p>
 
-        {new Date(image.date).toDateString() !==
-          new Date(todaysDate).toDateString() && (
+        {image.date != todaysDate && (
           <button
             onClick={() => {
               changeDate(1);
