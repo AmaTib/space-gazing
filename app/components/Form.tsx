@@ -9,6 +9,7 @@ interface IFormProps {
   close: () => void;
   dateInput: string;
   setDateInput: React.Dispatch<React.SetStateAction<string>>;
+  todaysDate: string;
 }
 
 export const Form = ({
@@ -18,6 +19,7 @@ export const Form = ({
   close,
   dateInput,
   setDateInput,
+  todaysDate,
 }: IFormProps) => {
   return (
     <>
@@ -36,6 +38,8 @@ export const Form = ({
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setDateInput(e.target.value);
             }}
+            min="1995-06-16"
+            max={todaysDate}
           />
           <button>{btnText}</button>
         </form>

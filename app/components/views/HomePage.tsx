@@ -77,6 +77,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           }}
           dateInput={dateInput}
           setDateInput={setDateInput}
+          todaysDate={todaysDate}
         />
       ) : (
         <PrimaryButton
