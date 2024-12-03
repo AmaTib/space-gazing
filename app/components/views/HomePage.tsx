@@ -1,11 +1,11 @@
 "use client";
 
-import { IImageInfo } from "@/app/models/IImageInfo";
-import ImageOfTheDay from "../ImageOfTheDay";
 import { useState } from "react";
+import { IImageInfo } from "@/app/models/IImageInfo";
 import { getImageByDate } from "@/services/imageServices";
 import { PrimaryButton } from "../PrimaryButton";
 import { Form } from "../Form";
+import ImageOfTheDay from "../ImageOfTheDay";
 
 interface IHomePageProps {
   imgObject: IImageInfo;
@@ -16,16 +16,28 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   const [image, setImage] = useState<IImageInfo>(imgObject);
   const [imgDate, setImgDate] = useState(imgObject.date);
   const [showForm, setShowForm] = useState(false);
+  const [dateInput, setDateInput] = useState(image.date);
 
   const changeDate = async (direction: number) => {
     const date = new Date(imgDate);
     date.setDate(date.getDate() + direction);
     const updatedDate = date.toISOString().split("T")[0]; //.split("T")[0] splits the string at the T and keeps only the first part
 
-    const prevImage = await getImageByDate(updatedDate);
+    const newImage = await getImageByDate(updatedDate);
 
-    setImage(prevImage);
-    setImgDate(prevImage.date);
+    setImage(newImage);
+    setImgDate(newImage.date);
+  };
+
+  const searchByDate = async (date: string) => {
+    console.log(date);
+
+    const newImage = await getImageByDate(date);
+    console.log(newImage);
+
+    setImage(newImage);
+    setImgDate(newImage.date);
+    setShowForm(false);
   };
 
   return (
@@ -57,12 +69,15 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
         <Form
           btnText="&#128269;"
           inputType="date"
-          submit={() => {}}
+          submit={() => {
+            console.log(dateInput);
+            searchByDate(dateInput);
+          }}
           close={() => {
-            console.log("stängde");
-
             setShowForm(false);
           }}
+          dateInput={dateInput}
+          setDateInput={setDateInput}
         />
       ) : (
         <PrimaryButton
