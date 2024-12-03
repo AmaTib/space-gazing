@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { PrimaryButton } from "../PrimaryButton";
 import Link from "next/link";
 import { ICollections } from "@/app/models/ICollection";
@@ -10,9 +10,11 @@ import { RemoveButton } from "../RemoveButton";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
-  const [collections, setCollections] = useState<ICollections[]>(
-    JSON.parse(localStorage.getItem("collections") || "[]")
-  );
+  const [collections, setCollections] = useState<ICollections[]>([]);
+
+  useEffect(() => {
+    setCollections(JSON.parse(localStorage.getItem("collections") || "[]"));
+  }, []);
 
   const addCollection = (name: string) => {
     const newCollection = new Collection(name);
