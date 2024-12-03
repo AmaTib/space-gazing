@@ -1,5 +1,11 @@
+import { CollectionsPage } from "@/app/components/views/CollectionsPage";
+
 const collections = () => {
-  return <>Collections</>;
+  return (
+    <>
+      <CollectionsPage />
+    </>
+  );
 };
 
 export default collections;

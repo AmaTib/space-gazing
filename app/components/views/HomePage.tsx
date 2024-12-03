@@ -4,7 +4,7 @@ import { useState } from "react";
 import { IImageInfo } from "@/app/models/IImageInfo";
 import { getImageByDate } from "@/services/imageServices";
 import { PrimaryButton } from "../PrimaryButton";
-import { Form } from "../Form";
+import { DateForm } from "../DateForm";
 import ImageOfTheDay from "../ImageOfTheDay";
 
 interface IHomePageProps {
@@ -65,9 +65,10 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
       </section>
 
       {showForm ? (
-        <Form
-          btnText="&#128269;"
-          inputType="date"
+        <DateForm
+          dateInput={dateInput}
+          setDateInput={setDateInput}
+          todaysDate={todaysDate}
           submit={() => {
             console.log(dateInput);
             searchByDate(dateInput);
@@ -75,9 +76,6 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           close={() => {
             setShowForm(false);
           }}
-          dateInput={dateInput}
-          setDateInput={setDateInput}
-          todaysDate={todaysDate}
         />
       ) : (
         <PrimaryButton

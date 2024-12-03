@@ -1,27 +1,19 @@
 "use client";
 
-import { LikedImagesContext } from "@/app/context/LikedImagesContext";
-import { useContext } from "react";
+import { LikedImagesPresentation } from "../LikedImagesPresentation";
+import Link from "next/link";
 
 export const LikedImagesPage = () => {
-  const { likedImages, setLikedImages } = useContext(LikedImagesContext);
-
-  function removeFromLiked(imgDate: string) {
-    const updatedLikedImages = likedImages.filter((img) => img.date != imgDate);
-    console.log(updatedLikedImages);
-    setLikedImages(updatedLikedImages);
-    localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
-  }
-
   return (
     <>
-      Liked Images
-      {likedImages.map((img) => (
-        <div key={img.date}>
-          {img.title}{" "}
-          <button onClick={() => removeFromLiked(img.date)}>Ta bort</button>
-        </div>
-      ))}
+      <h2>Your liked images</h2>
+      <p>
+        Click on a picture to see more information, and to add it to a
+        collection
+      </p>
+      <Link href="/likedimages/collections">Collections</Link>
+
+      <LikedImagesPresentation />
     </>
   );
 };

@@ -3,8 +3,6 @@
 import { ChangeEvent, FormEvent } from "react";
 
 interface IFormProps {
-  inputType: string;
-  btnText: string;
   submit: (date: string) => void;
   close: () => void;
   dateInput: string;
@@ -12,9 +10,7 @@ interface IFormProps {
   todaysDate: string;
 }
 
-export const Form = ({
-  inputType,
-  btnText,
+export const DateForm = ({
   submit,
   close,
   dateInput,
@@ -33,7 +29,7 @@ export const Form = ({
           }}
         >
           <input
-            type={inputType}
+            type="date"
             value={dateInput}
             onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setDateInput(e.target.value);
@@ -41,7 +37,7 @@ export const Form = ({
             min="1995-06-16"
             max={todaysDate}
           />
-          <button>{btnText}</button>
+          <button>Search date</button>
         </form>
       </section>
     </>
