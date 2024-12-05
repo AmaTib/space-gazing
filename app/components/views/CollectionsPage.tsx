@@ -24,6 +24,14 @@ export const CollectionsPage = () => {
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
   };
 
+  const removeCollection = (i: number) => {
+    const updatedCollections = collections.filter(
+      (collection, index) => index !== i
+    );
+    setCollections(updatedCollections);
+    localStorage.setItem("collections", JSON.stringify(updatedCollections));
+  };
+
   console.log(collections);
 
   return (
@@ -34,7 +42,11 @@ export const CollectionsPage = () => {
         <ul key={i}>
           <li>
             <h3 key={i}>{collection.name}</h3>
-            <RemoveButton remove={() => {}} />
+            <RemoveButton
+              remove={() => {
+                removeCollection(i);
+              }}
+            />
           </li>
         </ul>
       ))}
