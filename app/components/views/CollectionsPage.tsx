@@ -24,9 +24,9 @@ export const CollectionsPage = () => {
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
   };
 
-  const removeCollection = (i: number) => {
+  const removeCollection = (id: number) => {
     const updatedCollections = collections.filter(
-      (collection, index) => index !== i
+      (collection) => collection.id !== id
     );
     setCollections(updatedCollections);
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
@@ -38,13 +38,13 @@ export const CollectionsPage = () => {
     <>
       <Link href="/likedimages">&#x2190; Back</Link>
       <h2>Collections</h2>
-      {collections.map((collection, i) => (
-        <ul key={i}>
+      {collections.map((collection) => (
+        <ul key={collection.id}>
           <li>
-            <h3 key={i}>{collection.name}</h3>
+            <h3>{collection.name}</h3>
             <RemoveButton
               remove={() => {
-                removeCollection(i);
+                removeCollection(collection.id);
               }}
             />
           </li>
