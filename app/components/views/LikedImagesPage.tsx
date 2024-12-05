@@ -11,7 +11,7 @@ export const LikedImagesPage = () => {
         Click on a picture to see more information, and to add it to a
         collection
       </p>
-      <Link href="/likedimages/collections">Collections</Link>
+      <Link href="/likedimages/collections">Collections &#x2192;</Link>
 
       <LikedImagesPresentation />
     </>
