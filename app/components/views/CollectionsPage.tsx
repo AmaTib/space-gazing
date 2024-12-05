@@ -41,7 +41,11 @@ export const CollectionsPage = () => {
       {collections.map((collection) => (
         <ul key={collection.id}>
           <li>
-            <h3>{collection.name}</h3>
+            <h3>
+              <Link href={`/likedimages/collections/${collection.id}`}>
+                {collection.name}
+              </Link>
+            </h3>
             <RemoveButton
               remove={() => {
                 removeCollection(collection.id);
