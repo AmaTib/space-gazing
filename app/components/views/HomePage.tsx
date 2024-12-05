@@ -16,7 +16,6 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   const [image, setImage] = useState<IImageInfo>(imgObject);
   const [imgDate, setImgDate] = useState(imgObject.date);
   const [showForm, setShowForm] = useState(false);
-  const [dateInput, setDateInput] = useState(image.date);
 
   const changeDate = async (direction: number) => {
     const date = new Date(imgDate);
@@ -66,12 +65,10 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
 
       {showForm ? (
         <DateForm
-          dateInput={dateInput}
-          setDateInput={setDateInput}
           todaysDate={todaysDate}
-          submit={() => {
-            console.log(dateInput);
-            searchByDate(dateInput);
+          submit={(date) => {
+            console.log(date);
+            searchByDate(date);
           }}
           close={() => {
             setShowForm(false);
