@@ -19,6 +19,9 @@ export const CollectionForm = ({ close, submit }: ICollectionFormProps) => {
         <label>Name</label>
         <input
           type="text"
+          required
+          minLength={3}
+          maxLength={30}
           value={nameInput}
           onChange={(e: ChangeEvent<HTMLInputElement>) => {
             setNameInput(e.target.value);
