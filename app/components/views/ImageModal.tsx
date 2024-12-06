@@ -1,6 +1,9 @@
 "use client";
 import { IImageInfo } from "@/app/models/IImageInfo";
 import Image from "next/image";
+import { SelectCollections } from "./SelectCollection";
+import { PrimaryButton } from "../PrimaryButton";
+import { useState } from "react";
 
 interface IImageModalProps {
   img: IImageInfo;
@@ -8,6 +11,8 @@ interface IImageModalProps {
 }
 
 export const ImageModal = ({ img, close }: IImageModalProps) => {
+  const [showSelect, setShowSelect] = useState(false);
+
   return (
     <>
       <section className="imageModalContainer">
@@ -29,6 +34,14 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
             {img.copyright ? `${img.copyright},` : ""} {img.date}
           </figcaption>
         </figure>
+        {!showSelect ? (
+          <PrimaryButton
+            text="Add to collection"
+            event={() => setShowSelect(true)}
+          />
+        ) : (
+          <SelectCollections imgObj={img} />
+        )}
 
         <p>{img.explanation}</p>
       </section>

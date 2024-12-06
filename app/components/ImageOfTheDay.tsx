@@ -33,8 +33,8 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
           <Image
             src={imgObject.hdurl}
             alt={imgObject.title}
-            height={200}
-            width={200}
+            height={250}
+            width={320}
             priority={true}
           ></Image>
         </>
