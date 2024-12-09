@@ -49,7 +49,9 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
             <SelectCollections imgObj={img} closeModal={close} />
           ))}
 
-        <p>{img.explanation}</p>
+        <div className="imgDescription">
+          <p>{img.explanation}</p>
+        </div>
       </section>
     </>
   );
