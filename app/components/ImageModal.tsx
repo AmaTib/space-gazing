@@ -46,7 +46,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
               event={() => setShowSelect(true)}
             />
           ) : (
-            <SelectCollections imgObj={img} />
+            <SelectCollections imgObj={img} closeModal={close} />
           ))}
 
         <p>{img.explanation}</p>

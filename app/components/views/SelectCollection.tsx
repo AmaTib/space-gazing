@@ -5,9 +5,13 @@ import { IImageInfo } from "@/app/models/IImageInfo";
 
 interface ISelectCollectionsProps {
   imgObj: IImageInfo;
+  closeModal: () => void;
 }
 
-export const SelectCollections = ({ imgObj }: ISelectCollectionsProps) => {
+export const SelectCollections = ({
+  imgObj,
+  closeModal,
+}: ISelectCollectionsProps) => {
   const [collections, setCollections] = useState<Collection[]>(
     JSON.parse(localStorage.getItem("collections") || "[]")
   );
@@ -35,6 +39,8 @@ export const SelectCollections = ({ imgObj }: ISelectCollectionsProps) => {
 
     setCollections(updatedCollections);
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
+
+    closeModal();
   };
 
   return (

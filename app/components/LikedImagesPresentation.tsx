@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { RemoveButton } from "./RemoveButton";
 import { useContext, useState } from "react";
