@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useContext, useState } from "react";
 import { IImageInfo } from "../models/IImageInfo";
 import { LikedImagesContext } from "../context/LikedImagesContext";
+import { InfoModal } from "./InfoModal";
 
 interface ImageOfTheDayProps {
   isImage: boolean;
@@ -45,10 +46,10 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
       <button onClick={likeImage}>Gilla</button>
 
       {showInfo && (
-        <section>
-          <p>{imgObject.explanation}</p>
-          <button onClick={openImageInfo}>close info</button>
-        </section>
+        <InfoModal
+          imgExplanation={imgObject.explanation}
+          openImageInfo={openImageInfo}
+        />
       )}
     </>
   );
