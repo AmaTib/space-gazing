@@ -3,14 +3,13 @@
 import { useEffect, useState } from "react";
 import { PrimaryButton } from "../PrimaryButton";
 import Link from "next/link";
-import { ICollections } from "@/app/models/ICollection";
 import { CollectionForm } from "../CollectionForm";
 import { Collection } from "@/app/models/Collection";
 import { RemoveButton } from "../RemoveButton";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
-  const [collections, setCollections] = useState<ICollections[]>([]);
+  const [collections, setCollections] = useState<Collection[]>([]);
 
   useEffect(() => {
     setCollections(JSON.parse(localStorage.getItem("collections") || "[]"));
@@ -47,7 +46,7 @@ export const CollectionsPage = () => {
               </Link>
             </h3>
             <RemoveButton
-              remove={() => {
+              eventWithParameter={() => {
                 removeCollection(collection.id);
               }}
             />
