@@ -2,13 +2,15 @@ import Image from "next/image";
 import { RemoveButton } from "./RemoveButton";
 import { useContext, useState } from "react";
 import { LikedImagesContext } from "../context/LikedImagesContext";
-import { ImageModal } from "./views/ImageModal";
+import { ImageModal } from "./ImageModal";
 import { IImageInfo } from "../models/IImageInfo";
+import { RemoveModal } from "./RemoveModal";
 
 export const LikedImagesPresentation = () => {
   const { likedImages, setLikedImages } = useContext(LikedImagesContext);
   const [image, setImage] = useState<IImageInfo>();
-  const [showModal, setShowModal] = useState(false);
+  const [showImgModal, setShowImgModal] = useState(false);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
 
   function removeFromLiked(imgDate: string) {
     const updatedLikedImages = likedImages.filter((img) => img.date != imgDate);
@@ -24,7 +26,7 @@ export const LikedImagesPresentation = () => {
           <h3>{img.title}</h3>
           <figure
             onClick={() => {
-              setShowModal(true);
+              setShowImgModal(true);
               setImage(img);
             }}
           >
@@ -40,12 +42,31 @@ export const LikedImagesPresentation = () => {
               <iframe src={img.url}></iframe>
             )}
           </figure>
-          <RemoveButton remove={() => removeFromLiked(img.date)} />
+
+          <RemoveButton
+            event={() => {
+              console.log("klick");
+              setShowRemoveModal(true);
+              setImage(img);
+              console.log(image);
+            }}
+          />
         </div>
       ))}
 
-      {showModal && (
-        <ImageModal img={image!} close={() => setShowModal(false)} />
+      {showRemoveModal && image && (
+        <RemoveModal
+          imgTitle={image.title}
+          remove={() => {
+            removeFromLiked(image.date);
+            setShowRemoveModal(false);
+          }}
+          cancel={() => setShowRemoveModal(false)}
+        />
+      )}
+
+      {showImgModal && (
+        <ImageModal img={image!} close={() => setShowImgModal(false)} />
       )}
     </>
   );

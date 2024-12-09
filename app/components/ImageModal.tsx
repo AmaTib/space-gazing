@@ -1,10 +1,10 @@
 "use client";
 import { IImageInfo } from "@/app/models/IImageInfo";
 import Image from "next/image";
-import { SelectCollections } from "./SelectCollection";
-import { PrimaryButton } from "../PrimaryButton";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
+import { PrimaryButton } from "./PrimaryButton";
+import { SelectCollections } from "./views/SelectCollection";
 
 interface IImageModalProps {
   img: IImageInfo;
@@ -19,7 +19,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
 
   return (
     <>
-      <section className="imageModalContainer">
+      <section className="modalContainer">
         <button onClick={close}>X</button>
         <figure>
           <h2>{img.title}</h2>

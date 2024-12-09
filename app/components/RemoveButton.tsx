@@ -1,11 +1,25 @@
 interface IRemoveButtonProps {
-  remove: () => void;
+  eventWithParameter?: (param?: string) => void;
+  event?: () => void;
 }
 
-export const RemoveButton = ({ remove }: IRemoveButtonProps) => {
+export const RemoveButton = ({
+  eventWithParameter,
+  event,
+}: IRemoveButtonProps) => {
   return (
     <>
-      <button onClick={remove}>Ta bort</button>
+      <button
+        onClick={() => {
+          if (eventWithParameter) {
+            eventWithParameter();
+          } else if (event) {
+            event();
+          }
+        }}
+      >
+        Ta bort
+      </button>
     </>
   );
 };

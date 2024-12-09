@@ -9,7 +9,7 @@ export const InfoModal = ({
 }: IInfoModalProps) => {
   return (
     <>
-      <section className="imageModalContainer">
+      <section className="modalContainer">
         <button onClick={openImageInfo}>close info</button>
         <p>{imgExplanation}</p>
       </section>

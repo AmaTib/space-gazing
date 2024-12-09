@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { RemoveButton } from "../RemoveButton";
-import { ImageModal } from "./ImageModal";
+import { ImageModal } from "../ImageModal";
 
 export const CollectionPage = () => {
   const [collection, setCollection] = useState<Collection>();
@@ -47,7 +47,7 @@ export const CollectionPage = () => {
               <iframe src={img.url}></iframe>
             )}
           </figure>
-          <RemoveButton remove={() => {}} />
+          <RemoveButton event={() => {}} />
 
           {showModal && (
             <ImageModal img={img} close={() => setShowModal(false)} />
