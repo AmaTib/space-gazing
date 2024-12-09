@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SelectCollections } from "./SelectCollection";
 import { PrimaryButton } from "../PrimaryButton";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 
 interface IImageModalProps {
   img: IImageInfo;
@@ -12,6 +13,9 @@ interface IImageModalProps {
 
 export const ImageModal = ({ img, close }: IImageModalProps) => {
   const [showSelect, setShowSelect] = useState(false);
+  const pathname = usePathname();
+
+  console.log(pathname);
 
   return (
     <>
@@ -34,14 +38,16 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
             {img.copyright ? `${img.copyright},` : ""} {img.date}
           </figcaption>
         </figure>
-        {!showSelect ? (
-          <PrimaryButton
-            text="Add to collection"
-            event={() => setShowSelect(true)}
-          />
-        ) : (
-          <SelectCollections imgObj={img} />
-        )}
+
+        {pathname == "/likedimages" &&
+          (!showSelect ? (
+            <PrimaryButton
+              text="Add to collection"
+              event={() => setShowSelect(true)}
+            />
+          ) : (
+            <SelectCollections imgObj={img} />
+          ))}
 
         <p>{img.explanation}</p>
       </section>

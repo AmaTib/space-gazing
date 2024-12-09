@@ -5,9 +5,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { RemoveButton } from "../RemoveButton";
+import { ImageModal } from "./ImageModal";
 
 export const CollectionPage = () => {
   const [collection, setCollection] = useState<Collection>();
+  const [showModal, setShowModal] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -31,16 +34,23 @@ export const CollectionPage = () => {
       {collection?.images.map((img, i) => (
         <div key={i}>
           <p>{img.title}</p>
-          {img.media_type === "image" ? (
-            <Image
-              src={img.hdurl}
-              alt={img.title}
-              height={100}
-              width={100}
-              priority={true}
-            />
-          ) : (
-            <iframe src={img.url}></iframe>
+          <figure onClick={() => setShowModal(true)}>
+            {img.media_type === "image" ? (
+              <Image
+                src={img.hdurl}
+                alt={img.title}
+                height={100}
+                width={100}
+                priority={true}
+              />
+            ) : (
+              <iframe src={img.url}></iframe>
+            )}
+          </figure>
+          <RemoveButton remove={() => {}} />
+
+          {showModal && (
+            <ImageModal img={img} close={() => setShowModal(false)} />
           )}
         </div>
       ))}

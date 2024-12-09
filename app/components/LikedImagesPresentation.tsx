@@ -21,6 +21,7 @@ export const LikedImagesPresentation = () => {
     <>
       {likedImages.map((img) => (
         <div key={img.date}>
+          <h3>{img.title}</h3>
           <figure
             onClick={() => {
               setShowModal(true);
