@@ -54,7 +54,7 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
             src={imgObject.url} //note to self: vill använda hdurl, men ibland laddas inte bilderna då...
             alt={imgObject.title}
             height={250}
-            width={320}
+            width={300}
             priority={true}
           ></Image>
         </>
