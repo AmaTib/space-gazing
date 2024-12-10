@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IImageInfo } from "../models/IImageInfo";
 import { InfoModal } from "./InfoModal";
 
@@ -14,15 +14,30 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
   const [likedImages, setLikedImages] = useState<IImageInfo[]>(
     JSON.parse(localStorage.getItem("likedImages") || "[]")
   );
+  const [isImageLiked, setIsImageLiked] = useState(false);
 
-  const likeImage = () => {
-    /*  if (!likedImages.find((img) => img.date)) { */
-    const updatedLikedImages = [...likedImages, imgObject];
-    console.log(updatedLikedImages);
+  useEffect(() => {
+    setIsImageLiked(likedImages.some((img) => img.date === imgObject.date));
+  }, [imgObject.date, likedImages]);
 
-    setLikedImages(updatedLikedImages);
-    localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
-    console.log(updatedLikedImages);
+  console.log("liked:", isImageLiked);
+
+  const toggleLikeImage = () => {
+    if (!isImageLiked) {
+      const updatedLikedImages = [...likedImages, imgObject];
+      console.log(updatedLikedImages);
+      setLikedImages(updatedLikedImages);
+      localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
+      console.log(updatedLikedImages);
+    }
+
+    if (isImageLiked) {
+      const updatedLikedImages = likedImages.filter(
+        (img) => img.date !== imgObject.date
+      );
+      setLikedImages(updatedLikedImages);
+      localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
+    }
   };
 
   const openImageInfo = () => {
@@ -47,7 +62,9 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
         <iframe src={imgObject.url}></iframe>
       )}
       <button onClick={openImageInfo}>info</button>
-      <button onClick={likeImage}>Gilla</button>
+      <button onClick={toggleLikeImage}>
+        {isImageLiked ? "ogilla" : "gilla"}
+      </button>
 
       {showInfo && (
         <InfoModal
