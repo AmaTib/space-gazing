@@ -11,7 +11,7 @@ const NavBar = () => {
   return (
     <>
       <nav>
-        <ul>
+        <ul className="navList">
           <li>
             <Link
               className={`navLink ${pathname === "/" && "focus"}`}
