@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { RemoveButton } from "./RemoveButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageModal } from "./ImageModal";
 import { IImageInfo } from "../models/IImageInfo";
 import { RemoveModal } from "./RemoveModal";
@@ -11,20 +11,27 @@ export const LikedImagesPresentation = () => {
   const [image, setImage] = useState<IImageInfo>();
   const [showImgModal, setShowImgModal] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
-  const [likedImages, setLikedImages] = useState<IImageInfo[]>(
-    JSON.parse(localStorage.getItem("likedImages") || "[]")
-  );
+  const [likedImages, setLikedImages] = useState<IImageInfo[]>();
+
+  useEffect(() => {
+    //This useeffect is needed to prevent error while deploying
+    setLikedImages(JSON.parse(localStorage.getItem("likedImages") || "[]"));
+  }, []);
 
   function removeFromLiked(imgDate: string) {
-    const updatedLikedImages = likedImages.filter((img) => img.date != imgDate);
-    console.log(updatedLikedImages);
-    setLikedImages(updatedLikedImages);
-    localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
+    if (likedImages) {
+      const updatedLikedImages = likedImages.filter(
+        (img) => img.date != imgDate
+      );
+      console.log(updatedLikedImages);
+      setLikedImages(updatedLikedImages);
+      localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
+    }
   }
 
   return (
     <>
-      {likedImages.map((img) => (
+      {likedImages?.map((img) => (
         <div key={img.date}>
           <h3>{img.title}</h3>
           <figure
