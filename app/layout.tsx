@@ -1,4 +1,3 @@
-import LikedImagesProvider from "./providers/likedImagesContextProvider";
 import Logo from "./components/Logo";
 import NavBar from "./components/NavBar";
 import "./globals.scss";
@@ -15,9 +14,7 @@ export default function RootLayout({
           <Logo />
           <NavBar />
         </header>
-        <main>
-          <LikedImagesProvider>{children}</LikedImagesProvider>
-        </main>
+        <main>{children}</main>
       </body>
     </html>
   );

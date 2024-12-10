@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { IImageInfo } from "../models/IImageInfo";
-import { LikedImagesContext } from "../context/LikedImagesContext";
 import { InfoModal } from "./InfoModal";
 
 interface ImageOfTheDayProps {
@@ -11,11 +10,16 @@ interface ImageOfTheDayProps {
 }
 
 const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
-  const { likedImages, setLikedImages } = useContext(LikedImagesContext);
   const [showInfo, setShowInfo] = useState(false);
+  const [likedImages, setLikedImages] = useState<IImageInfo[]>(
+    JSON.parse(localStorage.getItem("likedImages") || "[]")
+  );
 
   const likeImage = () => {
+    /*  if (!likedImages.find((img) => img.date)) { */
     const updatedLikedImages = [...likedImages, imgObject];
+    console.log(updatedLikedImages);
+
     setLikedImages(updatedLikedImages);
     localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
     console.log(updatedLikedImages);
@@ -32,7 +36,7 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
           <h2>{imgObject.title}</h2>
           <p> {imgObject.copyright ? `${imgObject.copyright}` : ""}</p>
           <Image
-            src={imgObject.hdurl}
+            src={imgObject.url} //note to self: vill använda hdurl, men ibland laddas inte bilderna då...
             alt={imgObject.title}
             height={250}
             width={320}

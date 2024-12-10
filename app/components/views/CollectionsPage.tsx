@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { PrimaryButton } from "../PrimaryButton";
 import Link from "next/link";
 import { CollectionForm } from "../CollectionForm";
@@ -9,11 +9,13 @@ import { RemoveButton } from "../RemoveButton";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
-  const [collections, setCollections] = useState<Collection[]>([]);
+  const [collections, setCollections] = useState<Collection[]>(
+    JSON.parse(localStorage.getItem("collections") || "[]")
+  );
 
-  useEffect(() => {
+  /*  useEffect(() => {
     setCollections(JSON.parse(localStorage.getItem("collections") || "[]"));
-  }, []);
+  }, []); */
 
   const addCollection = (name: string) => {
     const newCollection = new Collection(name);

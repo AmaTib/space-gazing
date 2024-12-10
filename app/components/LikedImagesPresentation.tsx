@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { RemoveButton } from "./RemoveButton";
-import { useContext, useState } from "react";
-import { LikedImagesContext } from "../context/LikedImagesContext";
+import { useState } from "react";
 import { ImageModal } from "./ImageModal";
 import { IImageInfo } from "../models/IImageInfo";
 import { RemoveModal } from "./RemoveModal";
 
 export const LikedImagesPresentation = () => {
-  const { likedImages, setLikedImages } = useContext(LikedImagesContext);
   const [image, setImage] = useState<IImageInfo>();
   const [showImgModal, setShowImgModal] = useState(false);
   const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [likedImages, setLikedImages] = useState<IImageInfo[]>(
+    JSON.parse(localStorage.getItem("likedImages") || "[]")
+  );
 
   function removeFromLiked(imgDate: string) {
     const updatedLikedImages = likedImages.filter((img) => img.date != imgDate);
@@ -34,7 +35,7 @@ export const LikedImagesPresentation = () => {
           >
             {img.media_type === "image" ? (
               <Image
-                src={img.hdurl}
+                src={img.url}
                 alt={img.title}
                 height={100}
                 width={100}
