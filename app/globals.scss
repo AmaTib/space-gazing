@@ -22,15 +22,17 @@ body {
 
 header {
   background-color: v.$secondaryColor;
-  height: 15vh;
-  position: relative;
+  height: 90px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
 }
 
 main {
+  margin-top: 90px;
   padding: v.$spacing-x-large v.$spacing-medium;
   background-color: v.$tertiaryColor;
-  height: 85vh;
-  overflow-y: scroll;
+  min-height: 85vh;
 }
 
 /* @media (prefers-color-scheme: dark) {
