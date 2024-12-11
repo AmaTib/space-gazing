@@ -1,0 +1,30 @@
+@use "variables" as v;
+
+.galleryContainer {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: v.$spacing-xx-small;
+}
+
+.imageContainer {
+  position: relative;
+  height: 140px;
+
+  .removeImgButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+  }
+}
+
+figure {
+  height: 100%;
+  width: 100%;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

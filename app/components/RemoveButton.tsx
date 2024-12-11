@@ -10,6 +10,7 @@ export const RemoveButton = ({
   return (
     <>
       <button
+        className="removeImgButton"
         onClick={() => {
           if (eventWithParameter) {
             eventWithParameter();
