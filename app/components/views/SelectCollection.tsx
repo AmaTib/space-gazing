@@ -22,7 +22,7 @@ export const SelectCollections = ({
     if (collections.length > 0) {
       setPickedOption(collections[0].name);
     }
-  }, [collections]);
+  }, []);
 
   const displayErrormessage = () => {
     setDisplayError(true);

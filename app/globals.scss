@@ -15,7 +15,7 @@ body {
 body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
-  background-color: v.$tertiaryColor;
+  background-color: v.$secondaryColor;
   color: v.$fontColor;
 }
 
@@ -28,10 +28,10 @@ header {
 }
 
 main {
-  margin-top: 100px;
-  padding: 0 v.$spacing-medium;
+  margin-top: 90px;
+  padding: v.$spacing-medium;
   background-color: v.$tertiaryColor;
-  min-height: 80vh;
+  min-height: calc(100vh - 90px);
   overflow-y: scroll;
 }
 
