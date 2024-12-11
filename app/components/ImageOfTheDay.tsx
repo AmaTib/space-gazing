@@ -11,19 +11,23 @@ interface ImageOfTheDayProps {
 
 const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
   const [showInfo, setShowInfo] = useState(false);
-  const [likedImages, setLikedImages] = useState<IImageInfo[]>(
-    JSON.parse(localStorage.getItem("likedImages") || "[]")
-  );
+  const [likedImages, setLikedImages] = useState<IImageInfo[]>();
   const [isImageLiked, setIsImageLiked] = useState(false);
 
   useEffect(() => {
-    setIsImageLiked(likedImages.some((img) => img.date === imgObject.date));
+    setLikedImages(JSON.parse(localStorage.getItem("likedImages") || "[]"));
+  }, []);
+
+  useEffect(() => {
+    if (likedImages) {
+      setIsImageLiked(likedImages.some((img) => img.date === imgObject.date));
+    }
   }, [imgObject.date, likedImages]);
 
   console.log("liked:", isImageLiked);
 
   const toggleLikeImage = () => {
-    if (!isImageLiked) {
+    if (!isImageLiked && likedImages) {
       const updatedLikedImages = [...likedImages, imgObject];
       console.log(updatedLikedImages);
       setLikedImages(updatedLikedImages);
@@ -31,7 +35,7 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
       console.log(updatedLikedImages);
     }
 
-    if (isImageLiked) {
+    if (isImageLiked && likedImages) {
       const updatedLikedImages = likedImages.filter(
         (img) => img.date !== imgObject.date
       );
