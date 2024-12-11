@@ -16,7 +16,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
   min-height: 100vh;
-  background-color: v.$tertiaryColor;
+  background-color: v.$secondaryColor;
   color: v.$fontColor;
 }
 
@@ -28,6 +28,8 @@ header {
 
 main {
   padding: v.$spacing-x-large v.$spacing-medium;
+  background-color: v.$tertiaryColor;
+  height: 85vh;
 }
 
 /* @media (prefers-color-scheme: dark) {
