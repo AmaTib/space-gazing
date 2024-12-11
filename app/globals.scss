@@ -30,21 +30,6 @@ main {
   padding: v.$spacing-x-large v.$spacing-medium;
 }
 
-.modalContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.854);
-  padding: v.$spacing-x-large v.$spacing-medium;
-
-  .imgDescription {
-    height: 40%;
-    overflow-y: scroll;
-  }
-}
-
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

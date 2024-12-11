@@ -63,9 +63,6 @@ export const SelectCollections = ({
         </h5>
       ) : (
         <>
-          {displayError && (
-            <p>This already exists in collection: {pickedOption}</p>
-          )}
           <form
             onSubmit={(e: FormEvent) => {
               e.preventDefault();
@@ -88,6 +85,12 @@ export const SelectCollections = ({
             </select>
             <button>Add</button>
           </form>
+
+          {displayError && (
+            <p className="errorMessage">
+              This image already exists in collection: {pickedOption}
+            </p>
+          )}
         </>
       )}
     </>

@@ -1,0 +1,53 @@
+@use "variables" as v;
+
+.modalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: v.$spacing-small;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.854);
+  padding: v.$spacing-4x-large v.$spacing-x-large v.$spacing-x-small
+    v.$spacing-x-large;
+
+  figure {
+    height: 60%;
+    display: flex;
+    justify-content: center;
+
+    .nextImage {
+      width: auto;
+      height: 100%;
+    }
+  }
+
+  .closeButton {
+    position: absolute;
+    top: v.$spacing-large;
+    right: v.$spacing-large;
+  }
+
+  .addToCollectionContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .imgDescription {
+    height: 60%;
+    overflow-y: scroll;
+  }
+
+  .errorMessage {
+    position: absolute;
+    top: 40vh;
+    width: 80%;
+    background-color: black;
+    padding: v.$spacing-medium;
+  }
+}

@@ -1,3 +1,4 @@
+import "../styles/modal.scss";
 interface IInfoModalProps {
   imgExplanation: string;
   openImageInfo: () => void;
@@ -10,7 +11,9 @@ export const InfoModal = ({
   return (
     <>
       <section className="modalContainer">
-        <button onClick={openImageInfo}>close info</button>
+        <button className="closeButton" onClick={openImageInfo}>
+          close info
+        </button>
         <p>{imgExplanation}</p>
       </section>
     </>

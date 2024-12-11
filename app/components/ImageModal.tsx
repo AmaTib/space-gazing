@@ -5,6 +5,7 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { PrimaryButton } from "./PrimaryButton";
 import { SelectCollections } from "./views/SelectCollection";
+import "../styles/modal.scss";
 
 interface IImageModalProps {
   img: IImageInfo;
@@ -20,11 +21,14 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
   return (
     <>
       <section className="modalContainer">
-        <button onClick={close}>X</button>
+        <button className="closeButton" onClick={close}>
+          X
+        </button>
+        <h3>{img.title}</h3>
         <figure>
-          <h2>{img.title}</h2>
           {img.media_type === "image" ? (
             <Image
+              className="nextImage"
               src={img.hdurl}
               alt={img.title}
               height={200}
@@ -34,20 +38,22 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
           ) : (
             <iframe src={img.url}></iframe>
           )}
+        </figure>
+        <div className="addToCollectionContainer">
           <figcaption>
             {img.copyright ? `${img.copyright},` : ""} {img.date}
           </figcaption>
-        </figure>
 
-        {pathname == "/likedimages" &&
-          (!showSelect ? (
-            <PrimaryButton
-              text="Add to collection"
-              event={() => setShowSelect(true)}
-            />
-          ) : (
-            <SelectCollections imgObj={img} closeModal={close} />
-          ))}
+          {pathname == "/likedimages" &&
+            (!showSelect ? (
+              <PrimaryButton
+                text="Add to collection"
+                event={() => setShowSelect(true)}
+              />
+            ) : (
+              <SelectCollections imgObj={img} closeModal={close} />
+            ))}
+        </div>
 
         <div className="imgDescription">
           <p>{img.explanation}</p>
