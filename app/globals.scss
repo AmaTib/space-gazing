@@ -30,6 +30,7 @@ main {
   padding: v.$spacing-x-large v.$spacing-medium;
   background-color: v.$tertiaryColor;
   height: 85vh;
+  overflow-y: scroll;
 }
 
 /* @media (prefers-color-scheme: dark) {
