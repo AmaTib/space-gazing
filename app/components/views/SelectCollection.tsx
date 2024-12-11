@@ -15,8 +15,8 @@ export const SelectCollections = ({
   const [collections, setCollections] = useState<Collection[]>(
     JSON.parse(localStorage.getItem("collections") || "[]")
   );
-
   const [pickedOption, setPickedOption] = useState("");
+  const [displayError, setDisplayError] = useState(false);
 
   useEffect(() => {
     if (collections.length > 0) {
@@ -24,23 +24,34 @@ export const SelectCollections = ({
     }
   }, [collections]);
 
-  console.log(pickedOption);
+  const displayErrormessage = () => {
+    setDisplayError(true);
+    setTimeout(() => {
+      setDisplayError(false);
+    }, 2500);
+  };
 
   const addToCollection = (collectionName: string) => {
     const updatedCollections = collections.map((coll) => {
       if (coll.name === collectionName) {
-        return { ...coll, images: [...coll.images, imgObj] };
-      }
+        const imageExistsInCollection = coll.images.some(
+          (img) => img.date === imgObj.date
+        );
 
+        if (!imageExistsInCollection) {
+          console.log("image added to collection");
+          closeModal();
+          return { ...coll, images: [...coll.images, imgObj] };
+        } else {
+          console.log("image not added to collection");
+          displayErrormessage();
+        }
+      }
       return coll;
     });
 
-    console.log(updatedCollections);
-
     setCollections(updatedCollections);
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
-
-    closeModal();
   };
 
   return (
@@ -52,6 +63,9 @@ export const SelectCollections = ({
         </h5>
       ) : (
         <>
+          {displayError && (
+            <p>This already exists in collection: {pickedOption}</p>
+          )}
           <form
             onSubmit={(e: FormEvent) => {
               e.preventDefault();
