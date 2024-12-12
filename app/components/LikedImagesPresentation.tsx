@@ -19,6 +19,19 @@ export const LikedImagesPresentation = () => {
     setLikedImages(JSON.parse(localStorage.getItem("likedImages") || "[]"));
   }, []);
 
+  useEffect(() => {
+    if (showImgModal) {
+      document.getElementsByTagName("main")[0].classList.add("noscroll");
+    } else {
+      document.getElementsByTagName("main")[0].classList.remove("noscroll");
+    }
+
+    // Cleanup on component unmount
+    return () => {
+      document.body.classList.remove("noscroll");
+    };
+  }, [showImgModal]);
+
   function removeFromLiked(imgDate: string) {
     if (likedImages) {
       const updatedLikedImages = likedImages.filter(

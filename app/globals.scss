@@ -32,7 +32,12 @@ main {
   padding: v.$spacing-medium;
   background-color: v.$tertiaryColor;
   min-height: calc(100vh - 90px);
-  overflow-y: scroll;
+  /*  overflow-y: scroll; */
+}
+
+.noscroll {
+  height: calc(100vh - 90px);
+  overflow-y: hidden;
 }
 
 /* @media (prefers-color-scheme: dark) {

@@ -36,11 +36,13 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    max-width: 600px;
   }
 
   .imgDescription {
     height: 60%;
-    overflow-y: scroll;
+    max-width: 600px;
+    overflow-y: auto;
   }
 
   .errorMessage {

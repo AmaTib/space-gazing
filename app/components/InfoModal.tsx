@@ -14,7 +14,7 @@ export const InfoModal = ({
         <button className="closeButton" onClick={openImageInfo}>
           close info
         </button>
-        <p>{imgExplanation}</p>
+        <p className="imgDescription">{imgExplanation}</p>
       </section>
     </>
   );
