@@ -33,7 +33,17 @@ main {
   padding: v.$spacing-medium;
   background-color: v.$tertiaryColor;
   min-height: calc(100vh - 90px);
-  /*  overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainInnerContainer {
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-small;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .noscroll {

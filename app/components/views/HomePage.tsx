@@ -40,7 +40,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   };
 
   return (
-    <>
+    <section className="mainInnerContainer">
       <ImageOfTheDay imgObject={image} isImage={image.media_type === "image"} />
       <section>
         <button
@@ -82,7 +82,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           }}
         />
       )}
-    </>
+    </section>
   );
 };
 

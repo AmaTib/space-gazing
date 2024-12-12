@@ -35,7 +35,7 @@ export const CollectionsPage = () => {
   console.log(collections);
 
   return (
-    <>
+    <section className="mainInnerContainer">
       <Link href="/likedimages">&#x2190; Back</Link>
       <h2>Collections</h2>
       {collections.map((collection) => (
@@ -70,6 +70,6 @@ export const CollectionsPage = () => {
           }}
         />
       )}
-    </>
+    </section>
   );
 };

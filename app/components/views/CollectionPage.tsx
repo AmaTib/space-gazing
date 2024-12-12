@@ -4,12 +4,13 @@ import { Collection } from "@/app/models/Collection";
 import Link from "next/link";
 /* import Image from "next/image";
 import { RemoveButton } from "../RemoveButton"; */
-import { useParams } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import { ImageModal } from "../ImageModal";
 import { IImageInfo } from "@/app/models/IImageInfo";
 import { RemoveModal } from "../RemoveModal";
 import { ImageGallery } from "../ImageGallery";
+import { useParams } from "next/navigation";
 
 export const CollectionPage = () => {
   const [collections, setCollections] = useState<Collection[]>(
@@ -20,7 +21,7 @@ export const CollectionPage = () => {
   const [showRemoveModal, setShowRemoveModal] = useState(false);
   const [image, setImage] = useState<IImageInfo>();
 
-  const { id } = useParams();
+  const { id } = useParams() as { id: string };
 
   useEffect(() => {
     const currentCollection = collections.find(
@@ -61,7 +62,7 @@ export const CollectionPage = () => {
   }
 
   return (
-    <>
+    <section className="mainInnerContainer">
       <Link href="/likedimages/collections">&#x2190; Back</Link>
       <h2>Collection: {collection?.name}</h2>
 
@@ -95,6 +96,6 @@ export const CollectionPage = () => {
       {showImgModal && (
         <ImageModal img={image!} close={() => setShowImgModal(false)} />
       )}
-    </>
+    </section>
   );
 };
