@@ -10,7 +10,7 @@ export const RemoveButton = ({
   return (
     <>
       <button
-        className="removeImgButton"
+        className="removeImgButton button button-primary"
         onClick={() => {
           if (eventWithParameter) {
             eventWithParameter();

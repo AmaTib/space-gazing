@@ -1,4 +1,3 @@
-import { PrimaryButton } from "./PrimaryButton";
 import { RemoveButton } from "./RemoveButton";
 
 interface IRemoveMOdalProps {
@@ -15,12 +14,15 @@ export const RemoveModal = ({
   return (
     <>
       <section className="modalContainer">
-        <div>
+        <div className="removeInfoContainer">
           <h3>
-            Are you sure yo want to remove the image with the name {imgTitle}
+            Are you sure you want to remove <q>{imgTitle}</q> from your liked
+            images?
           </h3>
+          <button className="button button-secondary" onClick={cancel}>
+            Cancel
+          </button>
           <RemoveButton eventWithParameter={(date) => remove(date!)} />
-          <PrimaryButton text="Cancel" event={cancel} />
         </div>
       </section>
     </>

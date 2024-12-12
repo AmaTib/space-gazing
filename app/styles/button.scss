@@ -1,0 +1,17 @@
+@use "variables" as v;
+
+.button {
+  padding: v.$spacing-x-small v.$spacing-small;
+  font-size: v.$mainText;
+  border: none;
+  border-radius: 8px;
+  box-shadow: v.$shadow;
+
+  &-primary {
+    background-color: v.$primaryColor;
+  }
+
+  &-secondary {
+    background-color: v.$fontColor;
+  }
+}

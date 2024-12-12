@@ -6,7 +6,9 @@ interface IPrimaryButtonProp {
 export const PrimaryButton = ({ text, event }: IPrimaryButtonProp) => {
   return (
     <>
-      <button onClick={event}>{text}</button>
+      <button className="button button-primary" onClick={event}>
+        {text}
+      </button>
     </>
   );
 };
