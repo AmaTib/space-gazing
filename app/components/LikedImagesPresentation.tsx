@@ -25,8 +25,6 @@ export const LikedImagesPresentation = () => {
     } else {
       document.getElementsByTagName("main")[0].classList.remove("noscroll");
     }
-
-    // Cleanup on component unmount
     return () => {
       document.body.classList.remove("noscroll");
     };

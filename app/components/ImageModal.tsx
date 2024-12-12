@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { PrimaryButton } from "./PrimaryButton";
-import { SelectCollections } from "./views/SelectCollection";
+import { SelectCollections } from "./SelectCollection";
 import "../styles/modal.scss";
 
 interface IImageModalProps {
