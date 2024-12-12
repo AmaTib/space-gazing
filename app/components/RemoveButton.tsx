@@ -1,3 +1,4 @@
+import { FiTrash2 } from "react-icons/fi";
 interface IRemoveButtonProps {
   eventWithParameter?: (param?: string) => void;
   event?: () => void;
@@ -19,7 +20,7 @@ export const RemoveButton = ({
           }
         }}
       >
-        Ta bort
+        <FiTrash2 />
       </button>
     </>
   );
