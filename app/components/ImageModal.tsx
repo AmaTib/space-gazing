@@ -29,7 +29,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
           {img.media_type === "image" ? (
             <Image
               className="nextImage"
-              src={img.hdurl}
+              src={img.url}
               alt={img.title}
               height={200}
               width={300}

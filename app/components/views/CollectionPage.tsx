@@ -2,13 +2,14 @@
 
 import { Collection } from "@/app/models/Collection";
 import Link from "next/link";
-import Image from "next/image";
+/* import Image from "next/image";
+import { RemoveButton } from "../RemoveButton"; */
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { RemoveButton } from "../RemoveButton";
 import { ImageModal } from "../ImageModal";
 import { IImageInfo } from "@/app/models/IImageInfo";
 import { RemoveModal } from "../RemoveModal";
+import { ImageGallery } from "../ImageGallery";
 
 export const CollectionPage = () => {
   const [collections, setCollections] = useState<Collection[]>(
@@ -27,6 +28,18 @@ export const CollectionPage = () => {
     );
     setCollection(currentCollection);
   }, [collections, id]);
+
+  //Set classname when opening modal to prevent scrolling in the background
+  useEffect(() => {
+    if (showImgModal) {
+      document.getElementsByTagName("main")[0].classList.add("noscroll");
+    } else {
+      document.getElementsByTagName("main")[0].classList.remove("noscroll");
+    }
+    return () => {
+      document.body.classList.remove("noscroll");
+    };
+  }, [showImgModal]);
 
   function removeFromCollection(imgDate: string) {
     if (collection) {
@@ -49,40 +62,22 @@ export const CollectionPage = () => {
 
   return (
     <>
-      <p>Collection with id: {id}</p>
       <Link href="/likedimages/collections">&#x2190; Back</Link>
-      <h2>{collection?.name}</h2>
+      <h2>Collection: {collection?.name}</h2>
 
-      {collection?.images.map((img, i) => (
-        <div key={i}>
-          <p>{img.title}</p>
-          <figure
-            onClick={() => {
-              setImage(img);
-              setShowImgModal(true);
-            }}
-          >
-            {img.media_type === "image" ? (
-              <Image
-                src={img.hdurl}
-                alt={img.title}
-                height={100}
-                width={100}
-                priority={true}
-              />
-            ) : (
-              <iframe src={img.url}></iframe>
-            )}
-          </figure>
-
-          <RemoveButton
-            event={() => {
-              setImage(img);
-              setShowRemoveModal(true);
-            }}
-          />
-        </div>
-      ))}
+      {collection && (
+        <ImageGallery
+          likedImages={collection!.images!}
+          openInfo={(img) => {
+            setShowImgModal(true);
+            setImage(img);
+          }}
+          closeInfo={(img) => {
+            setShowRemoveModal(true);
+            setImage(img);
+          }}
+        />
+      )}
 
       {showRemoveModal && image && (
         <RemoveModal
