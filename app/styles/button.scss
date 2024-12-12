@@ -6,6 +6,7 @@
   border: none;
   border-radius: 8px;
   box-shadow: v.$shadow;
+  color: v.$secondaryColor;
 
   &-primary {
     background-color: v.$primaryColor;
