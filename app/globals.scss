@@ -38,6 +38,11 @@ main {
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+  color: v.$fontColor;
+}
+
 .mainInnerContainer {
   display: flex;
   flex-direction: column;
@@ -49,6 +54,11 @@ main {
 .noscroll {
   height: calc(100vh - 90px);
   overflow-y: hidden;
+}
+
+.collectionsButtonContainer {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* @media (prefers-color-scheme: dark) {

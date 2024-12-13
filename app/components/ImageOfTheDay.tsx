@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IImageInfo } from "../models/IImageInfo";
 import { InfoModal } from "./InfoModal";
+import { FiInfo } from "react-icons/fi";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 interface ImageOfTheDayProps {
   isImage: boolean;
@@ -50,10 +52,10 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
 
   return (
     <>
-      {isImage ? (
-        <>
-          <h2>{imgObject.title}</h2>
-          <p> {imgObject.copyright ? `${imgObject.copyright}` : ""}</p>
+      <h2>{imgObject.title}</h2>
+      <p> {imgObject.copyright ? `© ${imgObject.copyright}` : ""}</p>
+      <div className="imgOfTheDayConntainer">
+        {isImage ? (
           <Image
             src={imgObject.url} //note to self: vill använda hdurl, men ibland laddas inte bilderna då...
             alt={imgObject.title}
@@ -61,14 +63,24 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
             width={300}
             priority={true}
           ></Image>
-        </>
-      ) : (
-        <iframe src={imgObject.url}></iframe>
-      )}
-      <button onClick={openImageInfo}>info</button>
-      <button onClick={toggleLikeImage}>
-        {isImageLiked ? "ogilla" : "gilla"}
-      </button>
+        ) : (
+          <iframe src={imgObject.url}></iframe>
+        )}
+        <div className="removeImageButtonContainer">
+          <button
+            className="roundButton button button-primary"
+            onClick={openImageInfo}
+          >
+            <FiInfo />
+          </button>
+          <button
+            className="roundButton button button-primary"
+            onClick={toggleLikeImage}
+          >
+            {isImageLiked ? <FaHeart /> : <FaRegHeart />}
+          </button>
+        </div>
+      </div>
 
       {showInfo && (
         <InfoModal

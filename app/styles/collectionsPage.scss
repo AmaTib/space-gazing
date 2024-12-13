@@ -1,0 +1,42 @@
+@use "variables" as v;
+
+.collectionsListContainer {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.collectionsList {
+  list-style: none;
+  width: 100%;
+  margin: 0 0 v.$spacing-large 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    gap: v.$spacing-3x-large;
+    border-bottom: 2px solid v.$secondaryColor;
+    padding: v.$spacing-3x-large 0 0 0;
+
+    button {
+      background-color: rgba(0, 0, 0, 0);
+      color: v.$fontColor;
+      box-shadow: none;
+    }
+
+    a {
+      flex-grow: 1;
+      font-size: v.$heading;
+      font-weight: 700;
+
+      &:hover {
+        color: v.$primaryColor;
+      }
+    }
+  }
+}
+
+.addCollectionContainer {
+  width: fit-content;
+  margin: auto;
+}

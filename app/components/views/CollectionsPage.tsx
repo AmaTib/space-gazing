@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CollectionForm } from "../CollectionForm";
 import { Collection } from "@/app/models/Collection";
 import { RemoveButton } from "../RemoveButton";
+import "../../styles/collectionsPage.scss";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -37,39 +38,42 @@ export const CollectionsPage = () => {
   return (
     <section className="mainInnerContainer">
       <Link href="/likedimages">&#x2190; Back</Link>
-      <h2>Collections</h2>
-      {collections.map((collection) => (
-        <ul key={collection.id}>
-          <li>
-            <h3>
+      <div className="collectionsListContainer">
+        <h2>Collections</h2>
+        <ul className="collectionsList">
+          {collections.map((collection) => (
+            <li key={collection.id}>
               <Link href={`/likedimages/collections/${collection.id}`}>
                 {collection.name}
               </Link>
-            </h3>
-            <RemoveButton
-              eventWithParameter={() => {
-                removeCollection(collection.id);
+
+              <RemoveButton
+                eventWithParameter={() => {
+                  removeCollection(collection.id);
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+
+        <div className="addCollectionContainer">
+          {showForm ? (
+            <CollectionForm
+              close={() => {
+                setShowForm(false);
+              }}
+              submit={(name: string) => addCollection(name)}
+            />
+          ) : (
+            <PrimaryButton
+              text="New Collection +"
+              event={() => {
+                setShowForm(true);
               }}
             />
-          </li>
-        </ul>
-      ))}
-
-      {showForm ? (
-        <CollectionForm
-          close={() => {
-            setShowForm(false);
-          }}
-          submit={(name: string) => addCollection(name)}
-        />
-      ) : (
-        <PrimaryButton
-          text="New Collection +"
-          event={() => {
-            setShowForm(true);
-          }}
-        />
-      )}
+          )}
+        </div>
+      </div>
     </section>
   );
 };

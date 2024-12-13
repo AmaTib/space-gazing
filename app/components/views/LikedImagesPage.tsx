@@ -2,7 +2,6 @@
 
 import { LikedImagesPresentation } from "../LikedImagesPresentation";
 import Link from "next/link";
-import "../../styles/likedImagesPage.scss";
 
 export const LikedImagesPage = () => {
   return (

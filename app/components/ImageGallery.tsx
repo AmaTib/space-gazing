@@ -33,7 +33,9 @@ export const ImageGallery = ({
               )}
             </figure>
 
-            <RemoveButton event={() => closeInfo(img)} />
+            <div className="removeImageButtonContainer">
+              <RemoveButton event={() => closeInfo(img)} />
+            </div>
           </div>
         ))}
       </section>
