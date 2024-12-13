@@ -28,6 +28,8 @@
       flex-grow: 1;
       font-size: v.$heading;
       font-weight: 700;
+      max-width: 70%;
+      word-wrap: break-word;
 
       &:hover {
         color: v.$primaryColor;

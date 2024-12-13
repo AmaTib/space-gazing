@@ -39,6 +39,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
             <iframe src={img.url}></iframe>
           )}
         </figure>
+
         <div className="addToCollectionContainer">
           <figcaption>
             {img.copyright ? `${img.copyright},` : ""} {img.date}

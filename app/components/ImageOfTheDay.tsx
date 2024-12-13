@@ -5,6 +5,7 @@ import { IImageInfo } from "../models/IImageInfo";
 import { InfoModal } from "./InfoModal";
 import { FiInfo } from "react-icons/fi";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import "../styles/imageOfTheDay.scss";
 
 interface ImageOfTheDayProps {
   isImage: boolean;
@@ -54,7 +55,7 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
     <>
       <h2>{imgObject.title}</h2>
       <p> {imgObject.copyright ? `© ${imgObject.copyright}` : ""}</p>
-      <div className="imgOfTheDayConntainer">
+      <figure>
         {isImage ? (
           <Image
             src={imgObject.url} //note to self: vill använda hdurl, men ibland laddas inte bilderna då...
@@ -66,20 +67,21 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
         ) : (
           <iframe src={imgObject.url}></iframe>
         )}
-        <div className="removeImageButtonContainer">
-          <button
-            className="roundButton button button-primary"
-            onClick={openImageInfo}
-          >
-            <FiInfo />
-          </button>
-          <button
-            className="roundButton button button-primary"
-            onClick={toggleLikeImage}
-          >
-            {isImageLiked ? <FaHeart /> : <FaRegHeart />}
-          </button>
-        </div>
+      </figure>
+
+      <div className="imageButtonsContainer">
+        <button
+          className="roundButton button button-primary"
+          onClick={openImageInfo}
+        >
+          <FiInfo />
+        </button>
+        <button
+          className="roundButton button button-primary"
+          onClick={toggleLikeImage}
+        >
+          {isImageLiked ? <FaHeart /> : <FaRegHeart />}
+        </button>
       </div>
 
       {showInfo && (

@@ -6,6 +6,8 @@ import { getImageByDate } from "@/services/imageServices";
 import { PrimaryButton } from "../PrimaryButton";
 import { DateForm } from "../DateForm";
 import ImageOfTheDay from "../ImageOfTheDay";
+import "../../styles/homePage.scss";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 interface IHomePageProps {
   imgObject: IImageInfo;
@@ -41,47 +43,54 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
 
   return (
     <section className="mainInnerContainer">
-      <ImageOfTheDay imgObject={image} isImage={image.media_type === "image"} />
-      <section>
-        <button
-          onClick={() => {
-            changeDate(-1);
-          }}
-        >
-          Previous
-        </button>
-        <p>{image.date}</p>
-
-        {image.date != todaysDate && (
+      <div className="test">
+        <ImageOfTheDay
+          imgObject={image}
+          isImage={image.media_type === "image"}
+        />
+        <section className="changeDateContainer">
           <button
+            className="button"
             onClick={() => {
-              changeDate(1);
+              changeDate(-1);
             }}
           >
-            Next
+            <FiChevronLeft />
           </button>
-        )}
-      </section>
+          <p>{image.date}</p>
 
-      {showForm ? (
-        <DateForm
-          todaysDate={todaysDate}
-          submit={(date) => {
-            console.log(date);
-            searchByDate(date);
-          }}
-          close={() => {
-            setShowForm(false);
-          }}
-        />
-      ) : (
-        <PrimaryButton
-          text="Search Date"
-          event={() => {
-            setShowForm(true);
-          }}
-        />
-      )}
+          {image.date != todaysDate && (
+            <button
+              className="button"
+              onClick={() => {
+                changeDate(1);
+              }}
+            >
+              <FiChevronRight />
+            </button>
+          )}
+        </section>
+
+        {showForm ? (
+          <DateForm
+            todaysDate={todaysDate}
+            submit={(date) => {
+              console.log(date);
+              searchByDate(date);
+            }}
+            close={() => {
+              setShowForm(false);
+            }}
+          />
+        ) : (
+          <PrimaryButton
+            text="Search Date"
+            event={() => {
+              setShowForm(true);
+            }}
+          />
+        )}
+      </div>
     </section>
   );
 };

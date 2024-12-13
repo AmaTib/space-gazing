@@ -1,0 +1,56 @@
+@use "variables" as v;
+
+.changeDateContainer {
+  display: flex;
+  gap: v.$spacing-small;
+
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    color: v.$fontColor;
+    box-shadow: none;
+  }
+}
+
+.test {
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /*  border: 1px solid red; */
+
+  h2 {
+    font-size: v.$heading;
+  }
+
+  figure {
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* border: 1px solid rgb(0, 255, 21); */
+  }
+  img {
+    /* border: 1px solid yellow; */
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.imageButtonsContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 0 0 v.$spacing-medium 0;
+}
+
+/* .removeImageButtonContainer {
+  button {
+    margin: 1rem;
+  }
+} */

@@ -1,6 +1,6 @@
 @use "variables" as v;
 
-@mixin roundButton($bgColor: v.$primaryColor, $color: v.$secondaryColor) {
+/* @mixin roundButton($bgColor: v.$primaryColor, $color: v.$secondaryColor) {
   border: none;
   font-size: v.$heading;
   height: 35px;
@@ -9,4 +9,4 @@
   padding: 7.5px 0;
   background-color: $bgColor;
   color: $color;
-}
+} */

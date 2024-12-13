@@ -43,6 +43,12 @@ a {
   color: v.$fontColor;
 }
 
+.noscroll {
+  height: calc(100vh - 90px);
+  overflow-y: hidden;
+}
+
+//Containers
 .mainInnerContainer {
   display: flex;
   flex-direction: column;
@@ -51,14 +57,15 @@ a {
   width: 100%;
 }
 
-.noscroll {
-  height: calc(100vh - 90px);
-  overflow-y: hidden;
-}
-
 .collectionsButtonContainer {
   display: flex;
   justify-content: flex-end;
+}
+
+.removeImageButtonContainer {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
 }
 
 /* @media (prefers-color-scheme: dark) {
