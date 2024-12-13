@@ -18,8 +18,6 @@
   flex-direction: column;
   align-items: center;
 
-  /*  border: 1px solid red; */
-
   h2 {
     font-size: v.$heading;
   }
@@ -32,10 +30,9 @@
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    /* border: 1px solid rgb(0, 255, 21); */
   }
+
   img {
-    /* border: 1px solid yellow; */
     height: 100%;
     width: 100%;
     object-fit: contain;
@@ -45,12 +42,14 @@
 .imageButtonsContainer {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
   gap: 1rem;
-  margin: 0 0 v.$spacing-medium 0;
+  margin: v.$spacing-small 0 v.$spacing-medium 0;
 }
 
-/* .removeImageButtonContainer {
-  button {
-    margin: 1rem;
-  }
-} */
+.hideNextDateButton {
+  visibility: hidden;
+}
+.showNextDateButton {
+  visibility: visible;
+}

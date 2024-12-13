@@ -59,16 +59,18 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           </button>
           <p>{image.date}</p>
 
-          {image.date != todaysDate && (
-            <button
-              className="button"
-              onClick={() => {
-                changeDate(1);
-              }}
-            >
-              <FiChevronRight />
-            </button>
-          )}
+          <button
+            className={`button ${
+              image.date != todaysDate
+                ? "displayNextDateButton"
+                : "hideNextDateButton"
+            }`}
+            onClick={() => {
+              changeDate(1);
+            }}
+          >
+            <FiChevronRight />
+          </button>
         </section>
 
         {showForm ? (
