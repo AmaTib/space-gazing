@@ -31,6 +31,10 @@
     position: absolute;
     top: v.$spacing-large;
     right: v.$spacing-large;
+    background-color: transparent;
+    color: v.$fontColor;
+    font-size: 1.5rem;
+    border: none;
   }
 
   .addToCollectionContainer {

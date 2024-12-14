@@ -1,4 +1,5 @@
 import "../styles/modal.scss";
+import { FiX } from "react-icons/fi";
 interface IInfoModalProps {
   imgExplanation: string;
   openImageInfo: () => void;
@@ -12,7 +13,7 @@ export const InfoModal = ({
     <>
       <section className="modalContainer">
         <button className="closeButton" onClick={openImageInfo}>
-          close info
+          <FiX />
         </button>
         <p className="imgDescription">{imgExplanation}</p>
       </section>
