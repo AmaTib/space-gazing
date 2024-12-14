@@ -1,10 +1,5 @@
 import { getImageByDate } from "@/services/imageServices";
 import HomePage from "./components/views/HomePage";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "SpaceGazing",
-};
 
 export const dynamic = "force-dynamic";
 
