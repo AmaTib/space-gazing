@@ -1,8 +1,6 @@
-import { RemoveButton } from "./RemoveButton";
-
 interface IRemoveMOdalProps {
   imgTitle: string;
-  remove: (date: string) => void;
+  remove: () => void;
   cancel: () => void;
 }
 
@@ -22,7 +20,9 @@ export const RemoveModal = ({
           <button className="button button-secondary" onClick={cancel}>
             Cancel
           </button>
-          <RemoveButton eventWithParameter={(date) => remove(date!)} />
+          <button className="button button-primary" onClick={remove}>
+            Remove
+          </button>
         </div>
       </section>
     </>

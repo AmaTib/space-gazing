@@ -31,7 +31,7 @@ header {
 main {
   margin-top: 90px;
   padding: v.$spacing-medium;
-  background-color: v.$tertiaryColor;
+  background-image: linear-gradient(v.$tertiaryColor, v.$secondaryColor);
   height: calc(100vh - 90px);
   display: flex;
   flex-direction: column;
@@ -67,6 +67,7 @@ a {
   position: absolute;
   bottom: 5px;
   right: 5px;
+  z-index: 2;
 }
 
 /* @media (prefers-color-scheme: dark) {
