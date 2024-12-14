@@ -8,8 +8,7 @@ export const LikedImagesPage = () => {
     <section className="mainInnerContainer">
       <h2>Your liked images</h2>
       <p>
-        Click on a picture to see more information, and to add it to a
-        collection
+        Click on a picture to see more information and add it to a collection.
       </p>
 
       <div className="collectionsButtonContainer">

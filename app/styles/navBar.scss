@@ -6,14 +6,17 @@
   width: 100vw;
   justify-content: space-around;
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
 }
 
 .navLink {
   all: unset;
   cursor: pointer;
+  padding: v.$spacing-x-small v.$spacing-medium;
+  border-radius: 8px 8px 0 0;
 
   &.focus {
     background-color: v.$tertiaryColor;
+    box-shadow: inset 0px 7px 4px -5px rgba(0, 0, 0, 1);
   }
 }
