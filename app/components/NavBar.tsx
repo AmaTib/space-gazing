@@ -14,7 +14,7 @@ const NavBar = () => {
         <ul className="navList">
           <li>
             <Link
-              className={`navLink ${pathname === "/" && "focus"}`}
+              className={`navLink ${pathname === "/" ? "focus" : ""}`}
               href={"/"}
             >
               Home
@@ -22,7 +22,9 @@ const NavBar = () => {
           </li>
           <li>
             <Link
-              className={`navLink ${pathname === "/likedimages" && "focus"}`}
+              className={`navLink ${
+                pathname === "/likedimages" ? "focus" : ""
+              }`}
               href={"/likedimages"}
             >
               Liked Images
@@ -30,7 +32,7 @@ const NavBar = () => {
           </li>
           <li>
             <Link
-              className={`navLink ${pathname === "/about" && "focus"}`}
+              className={`navLink ${pathname === "/about" ? "focus" : ""}`}
               href={"/about"}
             >
               About
