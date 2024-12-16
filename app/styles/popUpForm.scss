@@ -1,0 +1,25 @@
+@use "variables" as v;
+
+.popUpFormContainer {
+  background-color: v.$primaryColor;
+  padding: v.$spacing-xx-large;
+  min-width: 300px;
+  position: fixed;
+  bottom: 0;
+  color: v.$secondaryColor;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: v.$spacing-medium;
+}
+
+.closeButton {
+  position: absolute;
+  top: v.$spacing-small;
+  right: v.$spacing-small;
+  background-color: transparent;
+  color: v.$secondaryColor;
+  font-size: 1.5rem;
+  border: none;
+}

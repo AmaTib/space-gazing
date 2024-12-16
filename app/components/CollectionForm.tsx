@@ -1,16 +1,14 @@
 import { ChangeEvent, useState } from "react";
 
 interface ICollectionFormProps {
-  close: () => void;
   submit: (name: string) => void;
 }
 
-export const CollectionForm = ({ close, submit }: ICollectionFormProps) => {
+export const CollectionForm = ({ submit }: ICollectionFormProps) => {
   const [nameInput, setNameInput] = useState("");
 
   return (
     <>
-      <button onClick={close}>X</button>
       <form
         onSubmit={() => {
           submit(nameInput);

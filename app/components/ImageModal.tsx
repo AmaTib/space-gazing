@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { PrimaryButton } from "./PrimaryButton";
 import { SelectCollections } from "./SelectCollection";
 import "../styles/modal.scss";
+import { FiX } from "react-icons/fi";
 
 interface IImageModalProps {
   img: IImageInfo;
@@ -22,7 +23,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
     <>
       <section className="modalContainer">
         <button className="closeButton" onClick={close}>
-          X
+          <FiX />
         </button>
         <h3>{img.title}</h3>
         <figure>

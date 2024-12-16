@@ -8,6 +8,7 @@ import { DateForm } from "../DateForm";
 import ImageOfTheDay from "../ImageOfTheDay";
 import "../../styles/homePage.scss";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import { PopUpForm } from "../PopUpForm";
 
 interface IHomePageProps {
   imgObject: IImageInfo;
@@ -74,16 +75,20 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
         </section>
 
         {showForm ? (
-          <DateForm
-            todaysDate={todaysDate}
-            submit={(date) => {
-              console.log(date);
-              searchByDate(date);
-            }}
+          <PopUpForm
             close={() => {
               setShowForm(false);
             }}
-          />
+            heading="Search for a date"
+          >
+            <DateForm
+              todaysDate={todaysDate}
+              submit={(date) => {
+                console.log(date);
+                searchByDate(date);
+              }}
+            />
+          </PopUpForm>
         ) : (
           <PrimaryButton
             text="Search Date"

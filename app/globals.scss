@@ -70,6 +70,29 @@ a {
   z-index: 2;
 }
 
+form {
+  /*   border: solid 2px red; */
+
+  input {
+    height: 44px;
+    width: 150px;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    background-color: #fff;
+    padding: 0 v.$spacing-medium;
+    margin-right: -1px;
+  }
+
+  button {
+    background-color: v.$secondaryColor;
+    border: solid 2px #fff;
+    border-radius: 0 8px 8px 0;
+    height: 44px;
+    width: 44px;
+    color: v.$fontColor;
+  }
+}
+
 /* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

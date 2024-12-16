@@ -1,9 +1,15 @@
 @use "variables" as v;
 
 .collectionsListContainer {
-  max-width: 600px;
+  /* max-width: 600px;
   width: 100%;
+  margin: 0 auto; */
+
   margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .collectionsList {

@@ -7,6 +7,7 @@ import { CollectionForm } from "../CollectionForm";
 import { Collection } from "@/app/models/Collection";
 import { RemoveButton } from "../RemoveButton";
 import "../../styles/collectionsPage.scss";
+import { PopUpForm } from "../PopUpForm";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -56,23 +57,23 @@ export const CollectionsPage = () => {
           ))}
         </ul>
 
-        <div className="addCollectionContainer">
-          {showForm ? (
-            <CollectionForm
-              close={() => {
-                setShowForm(false);
-              }}
-              submit={(name: string) => addCollection(name)}
-            />
-          ) : (
-            <PrimaryButton
-              text="New Collection +"
-              event={() => {
-                setShowForm(true);
-              }}
-            />
-          )}
-        </div>
+        {showForm ? (
+          <PopUpForm
+            close={() => {
+              setShowForm(false);
+            }}
+            heading="Add a new collection"
+          >
+            <CollectionForm submit={(name: string) => addCollection(name)} />
+          </PopUpForm>
+        ) : (
+          <PrimaryButton
+            text="New Collection +"
+            event={() => {
+              setShowForm(true);
+            }}
+          />
+        )}
       </div>
     </section>
   );
