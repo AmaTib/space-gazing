@@ -1,3 +1,4 @@
+import Link from "next/link";
 import "../../styles/aboutPage.scss";
 
 export const AboutPage = () => {
@@ -24,6 +25,9 @@ export const AboutPage = () => {
             </p>
           </div>
         </div>
+        <button className="button button-primary goExploreButton">
+          <Link href="/">Go explore</Link>
+        </button>
       </section>
     </>
   );
