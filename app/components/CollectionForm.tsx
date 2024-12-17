@@ -14,7 +14,7 @@ export const CollectionForm = ({ submit }: ICollectionFormProps) => {
           submit(nameInput);
         }}
       >
-        <label>Name</label>
+        <label>Collection name</label>
         <input
           type="text"
           required
@@ -25,7 +25,7 @@ export const CollectionForm = ({ submit }: ICollectionFormProps) => {
             setNameInput(e.target.value);
           }}
         />
-        <button>Add</button>
+        <button>Add +</button>
       </form>
     </>
   );

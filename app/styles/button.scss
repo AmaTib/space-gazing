@@ -9,7 +9,7 @@
   box-shadow: v.$shadow;
   color: v.$secondaryColor;
   width: fit-content;
-  cursor: pointer;
+  /*  cursor: pointer; */
 
   &-primary {
     background-color: v.$primaryColor;
