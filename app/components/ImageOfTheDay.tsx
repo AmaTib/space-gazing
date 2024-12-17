@@ -52,7 +52,6 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
 
   return (
     <>
-      {/* <h2>{imgObject.title}</h2> */}
       <p className="imgTitle">
         <span>{imgObject.title}</span>
         {imgObject.copyright ? `. © ${imgObject.copyright}` : ""}
