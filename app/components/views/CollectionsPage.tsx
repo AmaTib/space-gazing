@@ -1,14 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { PrimaryButton } from "../PrimaryButton";
-import Link from "next/link";
 import { CollectionForm } from "../CollectionForm";
 import { Collection } from "@/app/models/Collection";
 import { RemoveButton } from "../RemoveButton";
-import "../../styles/collectionsPage.scss";
 import { PopUpForm } from "../PopUpForm";
 import { RemoveModal } from "../RemoveModal";
+import "../../styles/collectionsPage.scss";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
@@ -52,9 +52,6 @@ export const CollectionsPage = () => {
               </Link>
 
               <RemoveButton
-                /* eventWithParameter={() => {
-                  removeCollection(collection.id);
-                }} */
                 event={() => {
                   setCollection(collection);
                   setShowRemoveModal(true);
@@ -93,7 +90,6 @@ export const CollectionsPage = () => {
           }}
           cancel={() => {
             setShowRemoveModal(false);
-            /*  setCollection(collection) */
           }}
         />
       )}
