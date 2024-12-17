@@ -25,6 +25,11 @@ figure {
   height: 100%;
 }
 
+iframe {
+  height: 100%;
+  width: 100%;
+}
+
 //creates gradient overlay
 .imageContainer::before {
   content: "";

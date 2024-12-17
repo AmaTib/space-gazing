@@ -43,7 +43,7 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
 
         <div className="addToCollectionContainer">
           <figcaption>
-            {img.copyright ? `${img.copyright},` : ""} {img.date}
+            {img.copyright ? `© ${img.copyright},` : ""} {img.date}
           </figcaption>
 
           {pathname == "/likedimages" &&

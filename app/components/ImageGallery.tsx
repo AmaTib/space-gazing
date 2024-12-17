@@ -19,7 +19,7 @@ export const ImageGallery = ({
         {likedImages.map((img) => (
           <div className="imageContainer" key={img.date}>
             <figure key={img.date} onClick={() => openInfo(img)}>
-              {img.media_type === "image" ? (
+              {/*  {img.media_type === "image" ? (
                 <Image
                   className="image"
                   src={img.url}
@@ -30,7 +30,17 @@ export const ImageGallery = ({
                 />
               ) : (
                 <iframe src={img.url}></iframe>
-              )}
+              )} */}
+              <Image
+                className="image"
+                src={
+                  img.media_type === "image" ? img.url : "/videoThumbnail.png"
+                }
+                alt={img.title}
+                height={100}
+                width={100}
+                priority={true}
+              />
             </figure>
 
             <div className="removeImageButtonContainer">
