@@ -1,7 +1,5 @@
 "use client";
 
-/* import Image from "next/image";
-import { RemoveButton } from "./RemoveButton"; */
 import { useEffect, useState } from "react";
 import { ImageModal } from "./ImageModal";
 import { IImageInfo } from "../models/IImageInfo";

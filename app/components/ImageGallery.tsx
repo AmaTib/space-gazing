@@ -19,18 +19,6 @@ export const ImageGallery = ({
         {likedImages.map((img) => (
           <div className="imageContainer" key={img.date}>
             <figure key={img.date} onClick={() => openInfo(img)}>
-              {/*  {img.media_type === "image" ? (
-                <Image
-                  className="image"
-                  src={img.url}
-                  alt={img.title}
-                  height={100}
-                  width={100}
-                  priority={true}
-                />
-              ) : (
-                <iframe src={img.url}></iframe>
-              )} */}
               <Image
                 className="image"
                 src={

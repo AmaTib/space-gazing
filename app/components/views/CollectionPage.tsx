@@ -2,9 +2,6 @@
 
 import { Collection } from "@/app/models/Collection";
 import Link from "next/link";
-/* import Image from "next/image";
-import { RemoveButton } from "../RemoveButton"; */
-
 import { useEffect, useState } from "react";
 import { ImageModal } from "../ImageModal";
 import { IImageInfo } from "@/app/models/IImageInfo";

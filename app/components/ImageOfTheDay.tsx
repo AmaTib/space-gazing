@@ -5,7 +5,6 @@ import { IImageInfo } from "../models/IImageInfo";
 import { InfoModal } from "./InfoModal";
 import { FiInfo } from "react-icons/fi";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import "../styles/imageOfTheDay.scss";
 
 interface ImageOfTheDayProps {
   isImage: boolean;
