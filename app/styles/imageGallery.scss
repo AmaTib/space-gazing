@@ -1,16 +1,28 @@
 @use "variables" as v;
+@use "mixins" as mix;
 
 .galleryContainer {
   position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-rows: repeat(2, 1fr);
   gap: v.$spacing-xx-small;
+
+  @include mix.tablet {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
 }
 
 .imageContainer {
   position: relative; //to place removebutton on top of image
   height: 140px;
+  max-width: 210px;
   cursor: pointer;
+
+  @include mix.tablet {
+    height: 210px;
+    max-width: 310px;
+  }
 }
 
 figure {

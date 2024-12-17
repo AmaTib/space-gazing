@@ -1,12 +1,11 @@
-@use "variables" as v;
+@mixin tablet {
+  @media screen and (min-width: 600px) {
+    @content;
+  }
+}
 
-/* @mixin roundButton($bgColor: v.$primaryColor, $color: v.$secondaryColor) {
-  border: none;
-  font-size: v.$heading;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
-  padding: 7.5px 0;
-  background-color: $bgColor;
-  color: $color;
-} */
+@mixin desktop {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}

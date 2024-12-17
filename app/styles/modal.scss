@@ -1,4 +1,5 @@
 @use "variables" as v;
+@use "mixins" as mix;
 
 .modalContainer {
   position: fixed;
@@ -17,9 +18,13 @@
   z-index: 3;
 
   figure {
-    height: 60%;
+    height: 50%;
     display: flex;
     justify-content: center;
+
+    @include mix.tablet {
+      height: 90%;
+    }
 
     .nextImage {
       width: auto;
@@ -49,7 +54,8 @@
   }
 
   .imgDescription {
-    height: 90%;
+    height: fit-content;
+    max-height: 90%;
     max-width: 600px;
     overflow-y: auto;
   }
