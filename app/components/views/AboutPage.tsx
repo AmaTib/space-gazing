@@ -8,6 +8,7 @@ export const AboutPage = () => {
         <div className="bigLogoContainer">
           <div className="bigLogo"></div>
           <div className="aboutText">
+            <h2>This is SpaceGazing</h2>
             <p>
               SpaceGazing is a web application where you can explore mesmerizing
               space photos from NASA. Each day brings a new picture, and you can
