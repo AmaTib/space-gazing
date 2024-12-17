@@ -59,6 +59,8 @@ export const LikedImagesPresentation = () => {
 
       {showRemoveModal && image && (
         <RemoveModal
+          removeFrom="your liked
+            images"
           imgTitle={image.title}
           remove={() => {
             removeFromLiked(image.date);

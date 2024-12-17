@@ -1,11 +1,15 @@
+import "../styles/modal.scss";
+
 interface IRemoveMOdalProps {
   imgTitle: string;
+  removeFrom: string;
   remove: () => void;
   cancel: () => void;
 }
 
 export const RemoveModal = ({
   imgTitle,
+  removeFrom,
   remove,
   cancel,
 }: IRemoveMOdalProps) => {
@@ -14,8 +18,7 @@ export const RemoveModal = ({
       <section className="modalContainer">
         <div className="removeInfoContainer">
           <h3>
-            Are you sure you want to remove <q>{imgTitle}</q> from your liked
-            images?
+            Are you sure you want to remove <q>{imgTitle}</q> from {removeFrom}?
           </h3>
           <button className="button button-secondary" onClick={cancel}>
             Cancel

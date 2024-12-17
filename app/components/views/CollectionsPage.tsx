@@ -8,10 +8,13 @@ import { Collection } from "@/app/models/Collection";
 import { RemoveButton } from "../RemoveButton";
 import "../../styles/collectionsPage.scss";
 import { PopUpForm } from "../PopUpForm";
+import { RemoveModal } from "../RemoveModal";
 
 export const CollectionsPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [collections, setCollections] = useState<Collection[]>([]);
+  const [showRemoveModal, setShowRemoveModal] = useState(false);
+  const [collection, setCollection] = useState<Collection>();
 
   useEffect(() => {
     //This useeffect is needed to prevent error while deploying
@@ -49,8 +52,12 @@ export const CollectionsPage = () => {
               </Link>
 
               <RemoveButton
-                eventWithParameter={() => {
+                /* eventWithParameter={() => {
                   removeCollection(collection.id);
+                }} */
+                event={() => {
+                  setCollection(collection);
+                  setShowRemoveModal(true);
                 }}
               />
             </li>
@@ -75,6 +82,21 @@ export const CollectionsPage = () => {
           />
         )}
       </div>
+
+      {showRemoveModal && collection && (
+        <RemoveModal
+          removeFrom="your collections"
+          imgTitle={collection.name}
+          remove={() => {
+            removeCollection(collection.id);
+            setShowRemoveModal(false);
+          }}
+          cancel={() => {
+            setShowRemoveModal(false);
+            /*  setCollection(collection) */
+          }}
+        />
+      )}
     </section>
   );
 };

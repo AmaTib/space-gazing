@@ -79,6 +79,7 @@ export const CollectionPage = () => {
 
       {showRemoveModal && image && (
         <RemoveModal
+          removeFrom="your collection"
           imgTitle={image.title}
           remove={() => {
             console.log(image);
