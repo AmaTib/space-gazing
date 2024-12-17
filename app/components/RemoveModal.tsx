@@ -20,12 +20,15 @@ export const RemoveModal = ({
           <h3>
             Are you sure you want to remove <q>{imgTitle}</q> from {removeFrom}?
           </h3>
-          <button className="button button-secondary" onClick={cancel}>
-            Cancel
-          </button>
-          <button className="button button-primary" onClick={remove}>
-            Remove
-          </button>
+
+          <div className="buttonContainer">
+            <button className="button button-secondary" onClick={cancel}>
+              Cancel
+            </button>
+            <button className="button button-primary" onClick={remove}>
+              Remove
+            </button>
+          </div>
         </div>
       </section>
     </>

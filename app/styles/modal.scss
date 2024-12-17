@@ -65,4 +65,13 @@
 
 .removeInfoContainer {
   max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: v.$spacing-3x-large;
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: v.$spacing-small;
+  }
 }
