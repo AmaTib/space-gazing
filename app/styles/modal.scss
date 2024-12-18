@@ -57,6 +57,12 @@
     justify-content: space-between;
     width: 100%;
     max-width: 600px;
+    min-height: 44px;
+    margin-bottom: v.$spacing-small;
+
+    figcaption {
+      width: 40%;
+    }
   }
 
   .imgDescription {

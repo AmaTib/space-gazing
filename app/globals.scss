@@ -79,14 +79,15 @@ form {
     display: block;
   }
 
-  input {
+  input,
+  select {
     height: 44px;
-    width: 150px;
+    max-width: 150px;
     border: none;
     border-radius: 8px 0 0 8px;
     background-color: #fff;
-    padding: 0 v.$spacing-medium;
-    margin-right: -1px;
+    padding: 0 v.$spacing-small;
+    /* margin-right: -1px; */
   }
 
   button {
