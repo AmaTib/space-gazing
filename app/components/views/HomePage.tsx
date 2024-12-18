@@ -44,7 +44,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
 
   return (
     <section className="mainInnerContainer">
-      <div className="test">
+      <div className="mainContent">
         <ImageOfTheDay
           imgObject={image}
           isImage={image.media_type === "image"}

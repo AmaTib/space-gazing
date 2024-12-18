@@ -39,6 +39,11 @@ main {
   /* overflow-y: auto; */
 }
 
+.noscroll {
+  height: calc(100vh - 90px);
+  overflow-y: hidden;
+}
+
 a {
   text-decoration: none;
   color: v.$fontColor;
@@ -46,11 +51,6 @@ a {
 
 button {
   cursor: pointer;
-}
-
-.noscroll {
-  height: calc(100vh - 90px);
-  overflow-y: hidden;
 }
 
 //Containers

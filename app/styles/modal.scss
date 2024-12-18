@@ -44,6 +44,12 @@
     color: v.$fontColor;
     font-size: 1.5rem;
     border: none;
+
+    @include mix.tablet {
+      top: v.$spacing-3x-large;
+      right: v.$spacing-5x-large;
+      font-size: 2rem;
+    }
   }
 
   .addToCollectionContainer {
