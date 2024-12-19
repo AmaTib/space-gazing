@@ -9,16 +9,6 @@ way and beyond. The universe is the limit!
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
 ## Purpose
 In all the seriousness the world offers in this day and time, it is important to get
 a break and just let your brain wander somewhere else for a moment. This web
@@ -54,4 +44,14 @@ to the collections page to view or create new collections if none exist.
 
 ![Screenshot 2024-12-19 121232](https://github.com/user-attachments/assets/4cb0f200-06ea-4cab-b31a-7352187b656e)
 
+
+## Getting Started
+
+First, run the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
