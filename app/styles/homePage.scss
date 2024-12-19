@@ -9,6 +9,12 @@
     background-color: rgba(0, 0, 0, 0);
     color: v.$fontColor;
     box-shadow: none;
+    transition: 0.5s;
+
+    &:hover {
+      background-color: transparent;
+      scale: 2;
+    }
   }
 }
 

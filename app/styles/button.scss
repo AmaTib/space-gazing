@@ -9,7 +9,7 @@
   box-shadow: v.$shadow;
   color: v.$secondaryColor;
   width: fit-content;
-  /*  cursor: pointer; */
+  transition: 0.5s;
 
   &-primary {
     background-color: v.$primaryColor;
@@ -22,6 +22,10 @@
   a {
     color: v.$secondaryColor;
   }
+
+  &:hover {
+    background-color: v.$hoverColor;
+  }
 }
 
 .roundButton {
@@ -30,4 +34,8 @@
   width: 35px;
   border-radius: 50%;
   padding: 7.5px 0;
+
+  &:hover {
+    background-color: v.$hoverColor;
+  }
 }
