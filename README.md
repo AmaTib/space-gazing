@@ -19,14 +19,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-##Purpose
+## Purpose
 In all the seriousness the world offers in this day and time, it is important to get
 a break and just let your brain wander somewhere else for a moment. This web
 application offers the user an opportunity to delve into something that has pure
 recreational value. The fact that you can also learn something along the way is just a
 bonus, making the experience both enjoyable and meaningful.
 
-##Goal
+## Goal
 The goal of this project is a visually appealing web
 application that can be used on either phone, tablet, or computers. For the user on the
 way to work scrolling on their phone. For someone taking a break from answering
@@ -38,7 +38,7 @@ It is easy to use and has a clear purpose. What keeps users coming back is the c
 to discover a fresh, unexpected picture every day, something new and unknown that
 draws them to return and see what each day has to offer.
 
-##Function analysis & technical breakdown
+## Function analysis & technical breakdown
 Base functionality of the web app:
 On the home page a new picture will be displayed every day along with information
 about the picture. Users can navigate through previous or future dates using arrows,
@@ -50,7 +50,7 @@ images page) shows additional information, such as image text, and provides opti
 to delete it or save it to a collection. In the “saved images” page the user can navigate
 to the collections page to view or create new collections if none exist.
 
-##Flowchart
+## Flowchart
 
 ![Screenshot 2024-12-19 121232](https://github.com/user-attachments/assets/4cb0f200-06ea-4cab-b31a-7352187b656e)
 
