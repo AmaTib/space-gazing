@@ -1,3 +1,5 @@
+![Screenshot 2024-12-19 121828](https://github.com/user-attachments/assets/77826b98-8b21-479f-9103-f19c6b00d218)
+
 ## SpaceGazing
 SpaceGazing is a web application where you can explore mesmerizing space photos
 from NASA. Each day brings a new picture, and you can search to see what image was
