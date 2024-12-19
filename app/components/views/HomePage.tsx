@@ -51,6 +51,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
         />
         <section className="changeDateContainer">
           <button
+            aria-label="Previous date"
             className="button"
             onClick={() => {
               changeDate(-1);
@@ -61,6 +62,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           <p>{image.date}</p>
 
           <button
+            aria-label="Next date"
             className={`button ${
               image.date != todaysDate
                 ? "displayNextDateButton"

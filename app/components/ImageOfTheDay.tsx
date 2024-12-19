@@ -72,12 +72,14 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
 
       <div className="imageButtonsContainer">
         <button
+          aria-label="Image info"
           className="roundButton button button-primary"
           onClick={openImageInfo}
         >
           <FiInfo />
         </button>
         <button
+          aria-label="Mark image as liked"
           className="roundButton button button-primary"
           onClick={toggleLikeImage}
         >

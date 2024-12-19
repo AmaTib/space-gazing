@@ -11,6 +11,7 @@ export const RemoveButton = ({
   return (
     <>
       <button
+        aria-label="Delete image"
         className="roundButton button button-primary"
         onClick={() => {
           if (eventWithParameter) {
