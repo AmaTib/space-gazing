@@ -32,10 +32,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
   };
 
   const searchByDate = async (date: string) => {
-    console.log(date);
-
     const newImage = await getImageByDate(date);
-    console.log(newImage);
 
     setImage(newImage);
     setImgDate(newImage.date);
@@ -85,10 +82,7 @@ const HomePage = ({ imgObject, todaysDate }: IHomePageProps) => {
           >
             <DateForm
               todaysDate={todaysDate}
-              submit={(date) => {
-                console.log(date);
-                searchByDate(date);
-              }}
+              submit={(date) => searchByDate(date)}
             />
           </PopUpForm>
         ) : (

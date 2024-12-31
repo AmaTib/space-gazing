@@ -82,8 +82,6 @@ export const CollectionPage = () => {
           removeFrom="your collection"
           imgTitle={image.title}
           remove={() => {
-            console.log(image);
-
             removeFromCollection(image.date);
             setShowRemoveModal(false);
           }}

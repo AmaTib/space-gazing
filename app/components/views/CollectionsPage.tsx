@@ -37,8 +37,6 @@ export const CollectionsPage = () => {
     localStorage.setItem("collections", JSON.stringify(updatedCollections));
   };
 
-  console.log(collections);
-
   return (
     <section className="mainInnerContainer">
       <Link href="/likedimages">&#x2190; Back</Link>

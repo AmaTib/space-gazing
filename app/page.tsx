@@ -11,10 +11,7 @@ export default async function Home() {
 
   const todaysDate = year + "-" + month + "-" + day;
 
-  console.log("date:", date, "todaysdate:", todaysDate);
-
   const image = await getImageByDate(todaysDate);
-  console.log(image);
 
   return (
     <>

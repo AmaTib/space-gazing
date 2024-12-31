@@ -35,7 +35,6 @@ export const LikedImagesPresentation = () => {
       const updatedLikedImages = likedImages.filter(
         (img) => img.date != imgDate
       );
-      console.log(updatedLikedImages);
       setLikedImages(updatedLikedImages);
       localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
     }

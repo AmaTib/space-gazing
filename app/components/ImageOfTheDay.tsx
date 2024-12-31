@@ -26,15 +26,11 @@ const ImageOfTheDay = ({ isImage, imgObject }: ImageOfTheDayProps) => {
     }
   }, [imgObject.date, likedImages]);
 
-  console.log("liked:", isImageLiked);
-
   const toggleLikeImage = () => {
     if (!isImageLiked && likedImages) {
       const updatedLikedImages = [...likedImages, imgObject];
-      console.log(updatedLikedImages);
       setLikedImages(updatedLikedImages);
       localStorage.setItem("likedImages", JSON.stringify(updatedLikedImages));
-      console.log(updatedLikedImages);
     }
 
     if (isImageLiked && likedImages) {

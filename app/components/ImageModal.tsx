@@ -17,8 +17,6 @@ export const ImageModal = ({ img, close }: IImageModalProps) => {
   const [showSelect, setShowSelect] = useState(false);
   const pathname = usePathname();
 
-  console.log(pathname);
-
   return (
     <>
       <section className="modalContainer">

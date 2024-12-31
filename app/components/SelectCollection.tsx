@@ -39,11 +39,9 @@ export const SelectCollections = ({
         );
 
         if (!imageExistsInCollection) {
-          console.log("image added to collection");
           closeModal();
           return { ...coll, images: [...coll.images, imgObj] };
         } else {
-          console.log("image not added to collection");
           displayErrormessage();
         }
       }
