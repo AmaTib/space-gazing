@@ -8,6 +8,7 @@ your knowledge of the cosmos. But it does not end there, create personalized
 collections of your favorite images, and enjoy creating your own gallery of the milky
 way and beyond. The universe is the limit!
 
+Visit here: <a href="https://space-gazing.vercel.app/" target="_blank">spaceGazing</a>
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
